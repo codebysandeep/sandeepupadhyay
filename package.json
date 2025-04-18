@@ -10,5 +10,9 @@
   },
   "dependencies": {
     "astro": "^5.7.3"
-  }
+  },
+  "devDependencies": {
+    "nx": "20.8.0"
+  },
+  "nx": {}
 }
