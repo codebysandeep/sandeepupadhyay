@@ -32,12 +32,47 @@ export default defineConfig({
         name: "post",
         label: "Posts",
         path: "content/posts",
+        format: "mdx",
         fields: [
           {
             type: "string",
             name: "title",
             label: "Title",
             isTitle: true,
+            required: true,
+          },
+          {
+            type: "string",
+            name: "intro",
+            label: "Intro Paragraph",
+            description:
+              "This will be displayed on the homepage and in the post list.",
+          },
+          {
+            type: "string",
+            name: "author",
+            label: "Author",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "excerpt",
+            label: "Excerpt",
+          },
+          {
+            type: "string",
+            name: "imageAlt",
+            label: "Image Alt Text",
+          },
+          {
+            type: "image",
+            name: "imageSrc",
+            label: "Image Source",
+          },
+          {
+            type: "datetime",
+            name: "posted",
+            label: "Date Posted",
             required: true,
           },
           {
