@@ -1,0 +1,36 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../src/components/layout/Layout.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts");
+
+  return posts.map((post) => ({
+    params: { slug: post.slug }, // post.slug includes folder path
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render(); 
+
+// You can access the category from the slug
+const category = post.slug.split('/')[0]; // 'javascript', 'css', 'test', etc.
+---
+
+
+<Layout title={post.data.title}>
+  <main class="container mx-auto px-4 py-16 max-w-4xl">
+    <article class="prose prose-lg mx-auto">
+      <header class="mb-8">
+        <!-- Optional: Show category -->
+        <div class="text-sm text-blue-600 uppercase tracking-wide mb-2">
+          {category}
+        </div>
+        <h1 class="text-4xl font-bold mb-4">{post.data.title}</h1>
+        {/* rest of your template */}
+      </header>
+      <Content />
+    </article>
+  </main>
+</Layout>
