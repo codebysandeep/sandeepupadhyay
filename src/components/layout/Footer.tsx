@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa';
 
 interface FooterProps {
   className?: string;
@@ -13,10 +14,10 @@ export const Footer: React.FC<FooterProps> = ({ className = '' }) => {
   ];
 
   const socialLinks = [
-    { name: 'GitHub', href: '#', icon: 'github' },
-    { name: 'LinkedIn', href: '#', icon: 'linkedin' },
-    { name: 'Twitter', href: '#', icon: 'twitter' },
-    { name: 'Email', href: 'mailto:hello@sandeepupadhyay.com', icon: 'mail' },
+    { name: 'GitHub', href: 'https://github.com/sandeepupadhyay', icon: FaGithub },
+    { name: 'LinkedIn', href: 'https://linkedin.com/in/sandeepupadhyay', icon: FaLinkedin },
+    { name: 'Twitter', href: 'https://twitter.com/sandeepupadhyay', icon: FaTwitter },
+    { name: 'Email', href: 'mailto:hello@sandeepupadhyay.com', icon: FaEnvelope },
   ];
 
   return (
@@ -60,18 +61,21 @@ export const Footer: React.FC<FooterProps> = ({ className = '' }) => {
                 Connect
               </h3>
               <div className="flex space-x-4">
-                {socialLinks.map((link) => (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    className="text-foreground/80 hover:text-foreground transition-colors duration-200"
-                    aria-label={link.name}
-                  >
-                    <span className="sr-only">{link.name}</span>
-                    {/* Icon placeholders - will be replaced with actual icons */}
-                    <div className="w-5 h-5 bg-foreground/20 rounded" />
-                  </a>
-                ))}
+                {socialLinks.map((link) => {
+                  const IconComponent = link.icon;
+                  return (
+                    <a
+                      key={link.name}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-foreground/80 hover:text-foreground transition-colors duration-200"
+                      aria-label={link.name}
+                    >
+                      <IconComponent size={20} />
+                    </a>
+                  );
+                })}
               </div>
             </div>
           </div>

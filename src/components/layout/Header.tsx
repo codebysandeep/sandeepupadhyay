@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Menu, X, Sun, Moon } from 'lucide-react';
+import { FaBars, FaTimes } from 'react-icons/fa';
+import { IoSunny, IoMoon } from 'react-icons/io5';
+import { Navigation } from './Navigation';
 
 interface HeaderProps {
   className?: string;
@@ -17,9 +19,9 @@ export const Header: React.FC<HeaderProps> = ({ className = '' }) => {
   };
 
   const navItems = [
-    { name: 'About Me', href: '#about' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Projects', href: '/projects' },
+    { name: 'About Me', href: '#about', order: 1 },
+    { name: 'Blog', href: '/blog', order: 2 },
+    { name: 'Projects', href: '/projects', order: 3 },
   ];
 
   const actionItems = [
@@ -39,17 +41,9 @@ export const Header: React.FC<HeaderProps> = ({ className = '' }) => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex md:items-center md:space-x-8">
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-foreground/80 hover:text-foreground transition-colors duration-200 font-medium"
-              >
-                {item.name}
-              </a>
-            ))}
-          </nav>
+          <div className="hidden md:flex">
+            <Navigation items={navItems} orientation="horizontal" />
+          </div>
 
           {/* Desktop Actions */}
           <div className="hidden md:flex md:items-center md:space-x-4">
@@ -58,7 +52,7 @@ export const Header: React.FC<HeaderProps> = ({ className = '' }) => {
               className="p-2 rounded-md text-foreground/80 hover:text-foreground hover:bg-accent transition-colors duration-200"
               aria-label="Toggle theme"
             >
-              {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+              {isDarkMode ? <IoSunny size={20} /> : <IoMoon size={20} />}
             </button>
             {actionItems.map((item) => (
               <a
@@ -78,14 +72,14 @@ export const Header: React.FC<HeaderProps> = ({ className = '' }) => {
               className="p-2 rounded-md text-foreground/80 hover:text-foreground hover:bg-accent transition-colors duration-200"
               aria-label="Toggle theme"
             >
-              {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+              {isDarkMode ? <IoSunny size={20} /> : <IoMoon size={20} />}
             </button>
             <button
               onClick={toggleMenu}
               className="p-2 rounded-md text-foreground/80 hover:text-foreground hover:bg-accent transition-colors duration-200"
               aria-label="Toggle menu"
             >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
             </button>
           </div>
         </div>
@@ -94,16 +88,11 @@ export const Header: React.FC<HeaderProps> = ({ className = '' }) => {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t">
-              {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="block px-3 py-2 text-base font-medium text-foreground/80 hover:text-foreground hover:bg-accent rounded-md transition-colors duration-200"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </a>
-              ))}
+              <Navigation 
+                items={navItems} 
+                orientation="vertical" 
+                onItemClick={() => setIsMenuOpen(false)} 
+              />
               <div className="pt-4 border-t space-y-2">
                 {actionItems.map((item) => (
                   <a

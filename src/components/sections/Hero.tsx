@@ -1,6 +1,6 @@
 import React from 'react';
-import { ArrowRight, Download } from 'lucide-react';
-import { SocialLinks } from './common/SocialLinks';
+import { FaArrowRight, FaDownload } from 'react-icons/fa';
+import { SocialLinks } from '../common/SocialLinks';
 
 interface HeroProps {
   headline: string;
@@ -69,7 +69,7 @@ export const Hero: React.FC<HeroProps> = ({
                   className="inline-flex items-center px-6 py-3 text-base font-medium rounded-md text-primary-foreground bg-primary hover:bg-primary/90 transition-colors duration-200 group"
                 >
                   {ctaButton.text}
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
+                  <FaArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
                 </a>
               )}
               
@@ -77,7 +77,7 @@ export const Hero: React.FC<HeroProps> = ({
                 href="#resume"
                 className="inline-flex items-center px-6 py-3 text-base font-medium rounded-md text-foreground border border-border hover:bg-accent transition-colors duration-200"
               >
-                <Download className="mr-2 h-4 w-4" />
+                <FaDownload className="mr-2 h-4 w-4" />
                 Download Resume
               </a>
             </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Sun, Moon, Monitor } from 'lucide-react';
+import { IoSunny, IoMoon, IoDesktop } from 'react-icons/io5';
 
 type Theme = 'light' | 'dark' | 'system';
 
@@ -86,13 +86,13 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({
   const getIcon = () => {
     switch (theme) {
       case 'light':
-        return <Sun size={20} />;
+        return <IoSunny size={20} />;
       case 'dark':
-        return <Moon size={20} />;
+        return <IoMoon size={20} />;
       case 'system':
-        return <Monitor size={20} />;
+        return <IoDesktop size={20} />;
       default:
-        return <Sun size={20} />;
+        return <IoSunny size={20} />;
     }
   };
 

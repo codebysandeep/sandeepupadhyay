@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Linkedin, Twitter, Mail, ExternalLink, Globe } from 'lucide-react';
+import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaExternalLinkAlt, FaGlobe } from 'react-icons/fa';
 
 interface SocialLink {
   name: string;
@@ -33,23 +33,23 @@ export const SocialLinks: React.FC<SocialLinksProps> = ({
     
     switch (iconName.toLowerCase()) {
       case 'github':
-        return <Github {...iconProps} />;
+        return <FaGithub {...iconProps} />;
       case 'linkedin':
-        return <Linkedin {...iconProps} />;
+        return <FaLinkedin {...iconProps} />;
       case 'twitter':
       case 'x':
-        return <Twitter {...iconProps} />;
+        return <FaTwitter {...iconProps} />;
       case 'email':
       case 'mail':
-        return <Mail {...iconProps} />;
+        return <FaEnvelope {...iconProps} />;
       case 'website':
       case 'globe':
       case 'portfolio':
-        return <Globe {...iconProps} />;
+        return <FaGlobe {...iconProps} />;
       case 'external':
-        return <ExternalLink {...iconProps} />;
+        return <FaExternalLinkAlt {...iconProps} />;
       default:
-        return <ExternalLink {...iconProps} />;
+        return <FaExternalLinkAlt {...iconProps} />;
     }
   };
 

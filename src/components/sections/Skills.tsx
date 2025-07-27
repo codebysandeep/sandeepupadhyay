@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Filter } from 'lucide-react';
+import { FaFilter } from 'react-icons/fa';
 
 interface Skill {
   name: string;
@@ -94,7 +94,7 @@ export const Skills: React.FC<SkillsProps> = ({
                   : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
               }`}
             >
-              <Filter className="inline w-4 h-4 mr-1" />
+              <FaFilter className="inline w-4 h-4 mr-1" />
               {category}
             </button>
           ))}
