@@ -1,0 +1,345 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Design System | Sandeep Upadhyay">
+  <div class="container-page py-12">
+    <!-- Page Header -->
+    <header class="mb-16">
+      <h1 class="display-h3 mb-4">Design System</h1>
+      <p class="body-p max-w-2xl">
+        A comprehensive guide to the typography, colors, and components used throughout the website.
+      </p>
+    </header>
+
+    <!-- Table of Contents -->
+    <nav class="mb-16 p-6 border border-border rounded-lg bg-secondary">
+      <h2 class="display-h6 mb-4">Contents</h2>
+      <ul class="space-y-2 body-medium">
+        <li><a href="#typography" class="text-orange-600 hover:underline">Typography</a></li>
+        <li><a href="#colors" class="text-orange-600 hover:underline">Colors</a></li>
+        <li><a href="#buttons" class="text-orange-600 hover:underline">Buttons</a></li>
+        <li><a href="#spacing" class="text-orange-600 hover:underline">Spacing & Layout</a></li>
+        <li><a href="#breakpoints" class="text-orange-600 hover:underline">Breakpoints</a></li>
+      </ul>
+    </nav>
+
+    <!-- Typography Section -->
+    <section id="typography" class="mb-20">
+      <h2 class="display-h4 mb-2">Typography</h2>
+      <p class="body-p mb-8">Two font families: <strong>DM Serif Display</strong> for titles, <strong>DM Sans</strong> for everything else.</p>
+
+      <!-- Title & Subtitle -->
+      <div class="mb-12">
+        <h3 class="display-h6 mb-4 text-stone-500">Title & Subtitle</h3>
+        <div class="space-y-4">
+          <div class="p-6 border border-border rounded-lg">
+            <div class="flex items-baseline justify-between mb-2">
+              <span class="body-small text-stone-500">Title</span>
+              <span class="body-small text-stone-400">DM Serif Display / 72px / 400</span>
+            </div>
+            <p class="title">Rive Profit. Mitigate Risk.</p>
+          </div>
+          <div class="p-6 border border-border rounded-lg">
+            <div class="flex items-baseline justify-between mb-2">
+              <span class="body-small text-stone-500">Subtitle</span>
+              <span class="body-small text-stone-400">DM Sans / 40px / 300</span>
+            </div>
+            <p class="subtitle">Leading enterprise-scale digital transformation</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Headings -->
+      <div class="mb-12">
+        <h3 class="display-h6 mb-4 text-stone-500">Headings</h3>
+        <div class="space-y-3">
+          <div class="p-4 border border-border rounded-lg flex items-baseline justify-between gap-4">
+            <h1 class="display-h1 truncate">Heading 1</h1>
+            <span class="body-small text-stone-400 whitespace-nowrap">72px / 700</span>
+          </div>
+          <div class="p-4 border border-border rounded-lg flex items-baseline justify-between gap-4">
+            <h2 class="display-h2 truncate">Heading 2</h2>
+            <span class="body-small text-stone-400 whitespace-nowrap">64px / 700</span>
+          </div>
+          <div class="p-4 border border-border rounded-lg flex items-baseline justify-between gap-4">
+            <h3 class="display-h3 truncate">Heading 3</h3>
+            <span class="body-small text-stone-400 whitespace-nowrap">48px / 600</span>
+          </div>
+          <div class="p-4 border border-border rounded-lg flex items-baseline justify-between gap-4">
+            <h4 class="display-h4 truncate">Heading 4</h4>
+            <span class="body-small text-stone-400 whitespace-nowrap">32px / 600</span>
+          </div>
+          <div class="p-4 border border-border rounded-lg flex items-baseline justify-between gap-4">
+            <h5 class="display-h5 truncate">Heading 5</h5>
+            <span class="body-small text-stone-400 whitespace-nowrap">24px / 600</span>
+          </div>
+          <div class="p-4 border border-border rounded-lg flex items-baseline justify-between gap-4">
+            <h6 class="display-h6 truncate">Heading 6</h6>
+            <span class="body-small text-stone-400 whitespace-nowrap">20px / 500</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Body Text -->
+      <div>
+        <h3 class="display-h6 mb-4 text-stone-500">Body Text</h3>
+        <div class="space-y-3">
+          <div class="p-4 border border-border rounded-lg">
+            <div class="flex items-baseline justify-between mb-2">
+              <span class="body-small text-stone-500">Body Big</span>
+              <span class="body-small text-stone-400">20px / 500</span>
+            </div>
+            <p class="body-big">Used for emphasized body content and introductions.</p>
+          </div>
+          <div class="p-4 border border-border rounded-lg">
+            <div class="flex items-baseline justify-between mb-2">
+              <span class="body-small text-stone-500">Body P (Default)</span>
+              <span class="body-small text-stone-400">18px / 400</span>
+            </div>
+            <p class="body-p">The default paragraph style for general content throughout the website.</p>
+          </div>
+          <div class="p-4 border border-border rounded-lg">
+            <div class="flex items-baseline justify-between mb-2">
+              <span class="body-small text-stone-500">Body Medium</span>
+              <span class="body-small text-stone-400">16px / 400</span>
+            </div>
+            <p class="body-medium">Secondary content, descriptions, and supporting text.</p>
+          </div>
+          <div class="p-4 border border-border rounded-lg">
+            <div class="flex items-baseline justify-between mb-2">
+              <span class="body-small text-stone-500">Body Small</span>
+              <span class="body-small text-stone-400">14px / 400</span>
+            </div>
+            <p class="body-small">Captions, metadata, labels, and fine print.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Colors Section -->
+    <section id="colors" class="mb-20">
+      <h2 class="display-h4 mb-2">Colors</h2>
+      <p class="body-p mb-8">Brand orange as primary, stone for neutrals, with semantic colors for feedback.</p>
+
+      <!-- Orange -->
+      <div class="mb-8">
+        <h3 class="display-h6 mb-4">Orange <span class="text-stone-500 font-normal">(Brand Primary)</span></h3>
+        <div class="grid grid-cols-6 sm:grid-cols-11 gap-2">
+          {[
+            { shade: '50', bg: 'bg-orange-50', text: 'text-stone-700' },
+            { shade: '100', bg: 'bg-orange-100', text: 'text-stone-700' },
+            { shade: '200', bg: 'bg-orange-200', text: 'text-stone-700' },
+            { shade: '300', bg: 'bg-orange-300', text: 'text-stone-700' },
+            { shade: '400', bg: 'bg-orange-400', text: 'text-stone-800' },
+            { shade: '500', bg: 'bg-orange-500', text: 'text-white' },
+            { shade: '600', bg: 'bg-orange-600', text: 'text-white' },
+            { shade: '700', bg: 'bg-orange-700', text: 'text-white' },
+            { shade: '800', bg: 'bg-orange-800', text: 'text-white' },
+            { shade: '900', bg: 'bg-orange-900', text: 'text-white' },
+            { shade: '950', bg: 'bg-orange-950', text: 'text-white' },
+          ].map((color) => (
+            <div class={`aspect-square rounded-lg ${color.bg} flex flex-col items-center justify-center p-1`}>
+              <span class={`text-xs font-medium ${color.text}`}>{color.shade}</span>
+            </div>
+          ))}
+        </div>
+        <p class="body-small mt-2 text-stone-500">Primary brand color: <code class="bg-secondary px-1 rounded">orange-600</code> (#EB5E28)</p>
+      </div>
+
+      <!-- Stone -->
+      <div class="mb-8">
+        <h3 class="display-h6 mb-4">Stone <span class="text-stone-500 font-normal">(Neutral)</span></h3>
+        <div class="grid grid-cols-5 sm:grid-cols-10 gap-2">
+          {[
+            { shade: '100', bg: 'bg-stone-100', text: 'text-stone-700' },
+            { shade: '200', bg: 'bg-stone-200', text: 'text-stone-700' },
+            { shade: '300', bg: 'bg-stone-300', text: 'text-stone-700' },
+            { shade: '400', bg: 'bg-stone-400', text: 'text-stone-800' },
+            { shade: '500', bg: 'bg-stone-500', text: 'text-white' },
+            { shade: '600', bg: 'bg-stone-600', text: 'text-white' },
+            { shade: '700', bg: 'bg-stone-700', text: 'text-white' },
+            { shade: '800', bg: 'bg-stone-800', text: 'text-white' },
+            { shade: '900', bg: 'bg-stone-900', text: 'text-white' },
+            { shade: '950', bg: 'bg-stone-950', text: 'text-white' },
+          ].map((color) => (
+            <div class={`aspect-square rounded-lg ${color.bg} flex flex-col items-center justify-center p-1`}>
+              <span class={`text-xs font-medium ${color.text}`}>{color.shade}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Semantic -->
+      <div>
+        <h3 class="display-h6 mb-4">Semantic</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div class="p-4 rounded-lg bg-success">
+            <span class="text-white font-medium">Success</span>
+            <p class="text-white/80 text-sm mt-1">#059669</p>
+          </div>
+          <div class="p-4 rounded-lg bg-warning">
+            <span class="text-white font-medium">Warning</span>
+            <p class="text-white/80 text-sm mt-1">#ca8a04</p>
+          </div>
+          <div class="p-4 rounded-lg bg-error">
+            <span class="text-white font-medium">Error</span>
+            <p class="text-white/80 text-sm mt-1">#dc2626</p>
+          </div>
+          <div class="p-4 rounded-lg bg-info">
+            <span class="text-white font-medium">Info</span>
+            <p class="text-white/80 text-sm mt-1">#0284c7</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Buttons Section -->
+    <section id="buttons" class="mb-20">
+      <h2 class="display-h4 mb-2">Buttons</h2>
+      <p class="body-p mb-8">Button variants for different contexts and hierarchies.</p>
+
+      <div class="space-y-6">
+        <!-- Primary -->
+        <div class="p-6 border border-border rounded-lg">
+          <h3 class="display-h6 mb-4">Primary</h3>
+          <div class="flex flex-wrap items-center gap-4">
+            <button class="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90 transition-opacity">
+              Primary Button
+            </button>
+            <button class="px-4 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-medium hover:opacity-90 transition-opacity">
+              Small
+            </button>
+            <button class="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium opacity-50 cursor-not-allowed">
+              Disabled
+            </button>
+          </div>
+          <p class="body-small mt-4 text-stone-500">Use for main CTAs. Background: <code class="bg-secondary px-1 rounded">primary</code></p>
+        </div>
+
+        <!-- Accent -->
+        <div class="p-6 border border-border rounded-lg">
+          <h3 class="display-h6 mb-4">Accent</h3>
+          <div class="flex flex-wrap items-center gap-4">
+            <button class="px-6 py-3 bg-orange-600 text-white rounded-lg font-medium hover:bg-orange-700 transition-colors">
+              Accent Button
+            </button>
+            <button class="px-4 py-2 bg-orange-600 text-white rounded-lg text-sm font-medium hover:bg-orange-700 transition-colors">
+              Small
+            </button>
+          </div>
+          <p class="body-small mt-4 text-stone-500">High-emphasis action. Background: <code class="bg-secondary px-1 rounded">orange-600</code></p>
+        </div>
+
+        <!-- Secondary -->
+        <div class="p-6 border border-border rounded-lg">
+          <h3 class="display-h6 mb-4">Secondary</h3>
+          <div class="flex flex-wrap items-center gap-4">
+            <button class="px-6 py-3 border border-border bg-background text-foreground rounded-lg font-medium hover:bg-secondary transition-colors">
+              Secondary Button
+            </button>
+            <button class="px-4 py-2 border border-border bg-background text-foreground rounded-lg text-sm font-medium hover:bg-secondary transition-colors">
+              Small
+            </button>
+          </div>
+          <p class="body-small mt-4 text-stone-500">Secondary actions. Border: <code class="bg-secondary px-1 rounded">border</code></p>
+        </div>
+
+        <!-- Ghost / Text -->
+        <div class="p-6 border border-border rounded-lg">
+          <h3 class="display-h6 mb-4">Ghost / Text Link</h3>
+          <div class="flex flex-wrap items-center gap-4">
+            <button class="px-6 py-3 text-foreground hover:bg-secondary rounded-lg font-medium transition-colors">
+              Ghost Button
+            </button>
+            <a href="#" class="text-foreground underline underline-offset-4 hover:text-orange-600 transition-colors">
+              Text Link
+            </a>
+            <a href="#" class="text-orange-600 hover:text-orange-700 font-medium transition-colors">
+              Colored Link
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Spacing Section -->
+    <section id="spacing" class="mb-20">
+      <h2 class="display-h4 mb-2">Spacing & Layout</h2>
+      <p class="body-p mb-8">Consistent spacing using Tailwind's default scale.</p>
+
+      <div class="p-6 border border-border rounded-lg">
+        <h3 class="display-h6 mb-4">Container</h3>
+        <p class="body-medium mb-4">Max-width container with responsive padding:</p>
+        <code class="block bg-secondary p-4 rounded-lg text-sm">
+          .container-page = max-w-7xl mx-auto px-4 sm:px-6 lg:px-8
+        </code>
+      </div>
+    </section>
+
+    <!-- Breakpoints Section -->
+    <section id="breakpoints" class="mb-20">
+      <h2 class="display-h4 mb-2">Breakpoints</h2>
+      <p class="body-p mb-8">Mobile-first responsive breakpoints.</p>
+
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse">
+          <thead>
+            <tr class="border-b border-border">
+              <th class="text-left py-3 px-4 body-medium font-semibold">Prefix</th>
+              <th class="text-left py-3 px-4 body-medium font-semibold">Min Width</th>
+              <th class="text-left py-3 px-4 body-medium font-semibold">Device</th>
+            </tr>
+          </thead>
+          <tbody class="body-medium">
+            <tr class="border-b border-border">
+              <td class="py-3 px-4"><code class="bg-secondary px-2 py-1 rounded">sm:</code></td>
+              <td class="py-3 px-4">640px</td>
+              <td class="py-3 px-4 text-stone-500">Large phones</td>
+            </tr>
+            <tr class="border-b border-border">
+              <td class="py-3 px-4"><code class="bg-secondary px-2 py-1 rounded">md:</code></td>
+              <td class="py-3 px-4">768px</td>
+              <td class="py-3 px-4 text-stone-500">Tablets</td>
+            </tr>
+            <tr class="border-b border-border">
+              <td class="py-3 px-4"><code class="bg-secondary px-2 py-1 rounded">lg:</code></td>
+              <td class="py-3 px-4">1024px</td>
+              <td class="py-3 px-4 text-stone-500">Laptops</td>
+            </tr>
+            <tr class="border-b border-border">
+              <td class="py-3 px-4"><code class="bg-secondary px-2 py-1 rounded">xl:</code></td>
+              <td class="py-3 px-4">1280px</td>
+              <td class="py-3 px-4 text-stone-500">Desktops</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4"><code class="bg-secondary px-2 py-1 rounded">2xl:</code></td>
+              <td class="py-3 px-4">1536px</td>
+              <td class="py-3 px-4 text-stone-500">Large screens</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Current Breakpoint Indicator -->
+      <div class="mt-8 p-6 border border-border rounded-lg bg-orange-50 dark:bg-orange-950/20">
+        <h3 class="display-h6 mb-2">Current Breakpoint</h3>
+        <p class="body-big text-orange-600">
+          <span class="sm:hidden">Mobile (< 640px)</span>
+          <span class="hidden sm:inline md:hidden">SM (>= 640px)</span>
+          <span class="hidden md:inline lg:hidden">MD (>= 768px)</span>
+          <span class="hidden lg:inline xl:hidden">LG (>= 1024px)</span>
+          <span class="hidden xl:inline 2xl:hidden">XL (>= 1280px)</span>
+          <span class="hidden 2xl:inline">2XL (>= 1536px)</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="pt-8 border-t border-border">
+      <p class="body-small text-center">
+        <a href="/" class="text-orange-600 hover:underline">Back to Home</a>
+      </p>
+    </footer>
+  </div>
+</Layout>

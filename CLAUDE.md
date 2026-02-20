@@ -1,136 +1,111 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
 ## Project Overview
 
-This is an Astro-based personal portfolio website for a Principal Frontend Engineer & UI/UX Director with React integration and TinaCMS for comprehensive content management. The site uses TypeScript and is configured for deployment at sandeepupadhyay.com.
+Personal portfolio website for a Principal Frontend Engineer & UI/UX Director.
+**URL**: https://sandeepupadhyay.com
 
-## Core Architecture
+## Tech Stack
 
-- **Framework**: Astro 5.7.3 with React integration
-- **UI Framework**: React 18+ for interactive components
-- **Styling**: Tailwind CSS 3.x + shadcn/ui components
-- **Content Management**: TinaCMS with MDX posts and structured content
-- **Build Tool**: Nx workspace configuration
-- **Icons**: Lucide React
-- **Carousel**: Swiper.js for project showcases
-- **Theme System**: Light/dark mode with system preference detection
+| Category | Technology |
+|----------|------------|
+| Framework | Astro 5.7 + React 19 |
+| Styling | Tailwind CSS 3.x |
+| Icons | Google Material Symbols |
+| CMS | TinaCMS (MDX) - Phase 5 |
+| Fonts | DM Serif Display, DM Sans |
+| Theme | Light/Dark with localStorage |
+| Animations | anime.js |
 
-## Technology Stack
-
-### Core Dependencies
-- **Astro**: Static site generation framework
-- **React**: Interactive component framework
-- **TinaCMS**: Git-based headless CMS
-- **Tailwind CSS**: Utility-first CSS framework
-- **shadcn/ui**: Reusable component library
-- **TypeScript**: Type safety throughout
-- **Swiper.js**: Modern carousel/slider library
-- **Lucide React**: Modern icon library
-
-### Content Management
-- **Blog Posts**: MDX files with rich-text content
-- **Projects**: Portfolio items with technologies, links, images
-- **Skills**: Technology skills with proficiency levels
-- **Experience**: Professional timeline with company details
-- **Site Configuration**: Global settings and navigation
-
-## Development Commands
+## Commands
 
 ```bash
-# Start development server with TinaCMS
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build locally  
-npm run preview
-
-# Run Astro CLI commands
-npm run astro [command]
-
-# Install dependencies
-npm install
-
-# TinaCMS admin interface
-# Available at /admin when dev server is running
+npm run dev      # Start dev server (localhost:4321)
+npm run build    # Production build
+npm run preview  # Preview build
 ```
 
 ## Project Structure
 
 ```
 src/
-├── components/          # Reusable UI components
-│   ├── Hero.tsx        # React component
-│   ├── Welcome.astro   # Astro component
-│   ├── features/       # Feature-specific components
-│   ├── layout/         # Layout components
-│   └── ui/             # UI primitives
-├── layouts/            # Page layouts
-├── pages/              # Route definitions
-│   ├── blog/           # Blog-related pages
-│   └── index.astro     # Homepage
-├── content/            # Content collections
-└── utils/              # Utility functions
-
-content/posts/          # MDX blog posts managed by TinaCMS
-tina/                   # TinaCMS configuration and generated files
-public/admin/           # TinaCMS admin interface
-```
-
-## Component Architecture
-
-```
-src/
 ├── components/
-│   ├── layout/           # Layout components
-│   │   ├── Header.tsx    # Site header with navigation
-│   │   ├── Footer.tsx    # Site footer
-│   │   └── Navigation.tsx # Navigation menu
-│   ├── sections/         # Page sections
-│   │   ├── Hero.tsx      # Hero section with CTA
-│   │   ├── Skills.tsx    # Technology skills showcase
-│   │   ├── Projects.tsx  # Featured projects carousel
-│   │   ├── Blog.tsx      # Latest blog posts
-│   │   └── Experience.tsx # Professional timeline
-│   ├── common/           # Reusable components
-│   │   ├── SkeletonLoader.tsx # Loading states
-│   │   ├── ThemeToggle.tsx    # Light/dark mode toggle
-│   │   └── SocialLinks.tsx    # Social media links
-│   └── ui/               # shadcn/ui components
-├── pages/                # Route definitions
-│   ├── index.astro       # Homepage
-│   ├── blog/             # Blog pages
-│   └── projects/         # Project pages
-└── layouts/              # Page layouts
-    └── Layout.astro      # Base layout
+│   ├── common/        # Icon, ThemeToggle
+│   ├── layout/        # Header
+│   └── sections/      # Hero, ClientLogos, Expertise, etc.
+├── layouts/
+│   └── Layout.astro   # Base layout with fonts, meta, theme
+├── pages/
+│   ├── index.astro    # Homepage
+│   └── design-system.astro
+└── styles/
+    └── globals.css    # CSS variables, typography utilities
 ```
 
-## Content Management
+## Design Tokens
 
-- **CMS**: TinaCMS admin interface available at `/admin`
-- **Blog Posts**: Created and edited through TinaCMS, stored as MDX files in `content/posts/`
-- **Projects**: Portfolio items with technologies, source/demo links
-- **Skills**: Technology skills with proficiency levels and categories
-- **Experience**: Professional timeline with company details
-- **Site Config**: Global settings, navigation, social links
-- **Media**: Managed through TinaCMS media manager in `public/` folder
-- **Schema**: Comprehensive schemas defined in `tina/config.ts`
+### Colors
+- **Primary**: Orange scale (brand: `orange-600` #EB5E28)
+- **Neutral**: Stone scale
+- **Semantic**: success, warning, error, info
 
-## Environment Setup
+### Typography Classes
+```
+.title          # DM Serif Display, 72px
+.subtitle       # DM Sans, 40px, light
+.display-h1-h6  # Headings (72px → 20px)
+.body-big       # 20px
+.body-p         # 18px (default)
+.body-medium    # 16px
+.body-small     # 14px
+```
 
-TinaCMS requires these environment variables:
-- `NEXT_PUBLIC_TINA_CLIENT_ID`: TinaCMS client ID
-- `TINA_TOKEN`: TinaCMS authentication token
+### Utilities
+```
+.container-page  # max-w-7xl with responsive padding
+```
 
-## Development Notes
+## Development Guidelines
 
-- The dev server runs TinaCMS alongside Astro for content editing
-- React components use `.tsx` extension, Astro components use `.astro`
-- Tailwind CSS for styling with shadcn/ui component system
-- Theme system supports light/dark modes with persistence
-- Content collections are built into Astro core (no separate config needed)
-- Site configured for https://sandeepupadhyay.com deployment
-- Performance optimized with image optimization and lazy loading
+### DRY Principles
+- Extract repeated content into data arrays/objects
+- Use mapping for lists (nav items, social links, etc.)
+- Prepare data structure for TinaCMS integration
+
+### Accessibility (WCAG AA)
+- Semantic HTML elements
+- ARIA labels for interactive elements
+- Keyboard navigation support
+- Focus states visible
+- Color contrast compliance
+
+### SEO & Social
+- Meta tags (title, description)
+- Open Graph tags
+- Twitter cards
+- Structured data where applicable
+
+### Code Patterns
+- Material Icons via `<Icon />` component
+- Brand logos as inline SVGs (GitHub, LinkedIn, X, YouTube)
+- Mobile-first responsive design
+- `client:load` for React components needing hydration
+
+## Key Files
+
+| File | Purpose |
+|------|---------|
+| `tailwind.config.mjs` | Colors, fonts, typography scale |
+| `src/styles/globals.css` | CSS variables, utility classes |
+| `src/layouts/Layout.astro` | Base layout, Google Fonts, SEO |
+| `src/components/common/Icon.tsx` | Material Icons wrapper |
+| `PLANNING.md` | Development phases & progress |
+| `TASK.md` | Current tasks & status |
+
+## Current Phase
+
+**Phase 3**: Pixel-Perfect Refinement
+- Match Figma designs exactly
+- Add real assets (images, links)
+- Implement animations
+- Accessibility & SEO optimization
