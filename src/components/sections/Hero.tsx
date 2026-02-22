@@ -16,17 +16,9 @@ export function Hero() {
   return (
     <section className="relative overflow-hidden py-12 lg:py-20">
       {/* Decorative fluid name watermark */}
-      <div className="container-page" style={{ containerType: 'inline-size' }}>
+      <div className="container-page watermark-wrapper">
         <h2
-          className="font-display font-medium select-none leading-none whitespace-nowrap"
-          style={{
-            fontSize: '11.5cqi',
-            background: 'linear-gradient(to bottom, rgba(250, 250, 249, 0.1), rgba(102, 102, 102, 1))',
-            WebkitBackgroundClip: 'text',
-            backgroundClip: 'text',
-            color: '#FAFAF9',
-            WebkitTextStroke: '1px transparent',
-          }}
+          className="name-watermark hero-name-watermark"
           aria-hidden="true"
         >
           Sandeep Upadhyay

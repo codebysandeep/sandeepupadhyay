@@ -105,10 +105,16 @@ export function Footer() {
               />
             </div>
 
-            {/* Name */}
-            <h3 className="font-display text-xl font-medium text-[#1C1917] dark:text-white mb-3">
-              {profile.name}
-            </h3>
+            {/* Logo */}
+            <a href="/" className="inline-block mb-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-600 focus-visible:ring-offset-2 rounded-sm">
+              <img
+                src="/images/sandeep-upadhyay-logo.svg"
+                alt="Sandeep Upadhyay"
+                className="h-7 w-auto dark:invert"
+                width="760"
+                height="80"
+              />
+            </a>
 
             {/* Bio */}
             <p className="text-sm text-stone-800 dark:text-stone-200 leading-relaxed max-w-sm">
@@ -190,9 +196,9 @@ export function Footer() {
       {/* Large Name Text */}
 
       {/* Decorative fluid name watermark */}
-      <div className="container-page" style={{ containerType: 'inline-size' }}>
+      <div className="container-page watermark-wrapper">
         <h2
-          className="font-display font-medium select-none leading-none whitespace-nowrap footer-name-watermark" 
+          className="name-watermark footer-name-watermark"
           aria-hidden="true"
         >
           Sandeep Upadhyay

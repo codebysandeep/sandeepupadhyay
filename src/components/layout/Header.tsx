@@ -108,9 +108,16 @@ export function Header() {
           {/* Logo */}
           <a
             href="/"
-            className="font-display text-lg lg:text-xl font-medium text-[#1C1917] dark:text-white hover:text-orange-600 dark:hover:text-orange-500 transition-colors shrink-0"
+            className="shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-600 focus-visible:ring-offset-2 rounded-sm"
+            aria-label="Sandeep Upadhyay — Home"
           >
-            Sandeep Upadhyay
+            <img
+              src="/images/sandeep-upadhyay-logo.svg"
+              alt="Sandeep Upadhyay"
+              className="h-6 lg:h-7 w-auto dark:invert"
+              width="760"
+              height="80"
+            />
           </a>
 
           {/* Desktop Navigation */}
