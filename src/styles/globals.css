@@ -435,6 +435,30 @@
 }
 
 /* Base: shared across hero and footer watermarks */
+
+
+/* Hero variant */
+.hero-name-watermark {
+  font-family: var(--font-display);
+  font-weight: 500;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.9));
+  color: #FAFAF9;
+}
+
+/* Footer variant */
+.footer-name-watermark {
+  font-family: var(--font-body);
+  font-weight: bold;
+  letter-spacing: -0.01em;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.9));
+  color: var(--color-text-inverse);
+  padding-bottom: 5px;
+}
+
+.dark .footer-name-watermark {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.35));
+}
+
 .name-watermark {
   font-size: 11.5cqi;
   line-height: 1;
@@ -443,28 +467,6 @@
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-stroke: 1px transparent;
-}
-
-/* Hero variant */
-.hero-name-watermark {
-  font-family: var(--font-display);
-  font-weight: 500;
-  background: linear-gradient(to bottom, rgba(250, 250, 249, 0.1), rgba(102, 102, 102, 1));
-  color: #FAFAF9;
-}
-
-/* Footer variant */
-.footer-name-watermark {
-  font-family: var(--font-body);
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.9));
-  color: var(--stone-400);
-  padding-bottom: 5px;
-}
-
-.dark .footer-name-watermark {
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.35));
 }
 
 /* Skeleton loading animation */
