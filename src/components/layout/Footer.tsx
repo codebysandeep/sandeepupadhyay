@@ -48,17 +48,17 @@ export function Footer() {
           {/* Profile Card Column */}
           <div className="lg:col-span-4">
             {/* Profile Image with Background */}
-            <div className="relative w-[260px] h-[300px] rounded-lg overflow-hidden mb-6">
+            <div className="relative w-[260px] h-[300px] rounded-xl overflow-hidden mb-6 border border-stone-200 dark:border-stone-700">
               <img
                 src={profile.bgImage}
                 alt=""
-                className="absolute inset-0 w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover object-center"
                 aria-hidden="true"
               />
               <img
                 src={profile.image}
                 alt={profile.name}
-                className="absolute inset-0 w-full h-full object-cover object-top"
+                className="absolute inset-0 w-full h-full object-cover object-top top-1/4"
               />
             </div>
 
