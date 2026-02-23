@@ -1,0 +1,19 @@
+/*
+ * ICON SIZE SCALE — Material Icons Outlined / Filled
+ * The font-face and base class styles are provided by the npm package
+ * (material-icons/iconfont/outlined.css and filled.css imported in globals.css).
+ * This file only overrides the default 24px font-size with named size classes.
+ *
+ * Usage via Icon component:
+ *   <Icon name="arrow_forward" size="sm" />          → outlined (default)
+ *   <Icon name="star" size="lg" filled />             → filled variant
+ *
+ * Direct HTML usage (avoid in .tsx — use <Icon> instead):
+ *   <span class="material-icons-outlined icon-md">home</span>
+ */
+@layer utilities {
+  .icon-sm { font-size: 18px; }
+  .icon-md { font-size: 24px; }
+  .icon-lg { font-size: 32px; }
+  .icon-xl { font-size: 48px; }
+}

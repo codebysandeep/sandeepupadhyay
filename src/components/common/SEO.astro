@@ -1,0 +1,77 @@
+---
+/**
+ * SEO.astro — Single source of truth for all meta tags.
+ *
+ * Usage in Layout.astro:
+ *   <SEO title="..." description="..." />
+ *
+ * Usage in a TinaCMS article page:
+ *   <Layout
+ *     title={`${post.title} — Sandeep Upadhyay`}
+ *     description={post.excerpt}
+ *     ogImage={post.coverImage}
+ *     ogType="article"
+ *     canonicalUrl={`https://sandeepupadhyay.com/articles/${post.slug}`}
+ *   />
+ */
+
+interface Props {
+  /** Page title — shown in browser tab and search results. */
+  title: string;
+  /** Meta description — 150–160 chars ideal for SEO. */
+  description: string;
+  /** Absolute path or full URL for the Open Graph image. Defaults to /og-image.png. */
+  ogImage?: string;
+  /** Open Graph content type. Use 'article' for blog posts. */
+  ogType?: 'website' | 'article';
+  /**
+   * Canonical URL for this page. Defaults to site root.
+   * Always set explicitly on paginated or duplicate-content pages.
+   */
+  canonicalUrl?: string;
+  /** Set true on utility pages (404, thank-you) to block indexing. */
+  noIndex?: boolean;
+}
+
+const {
+  title,
+  description,
+  ogImage = '/og-image.png',
+  ogType = 'website',
+  canonicalUrl,
+  noIndex = false,
+} = Astro.props;
+
+const siteUrl = 'https://sandeepupadhyay.com';
+
+// Resolve relative paths to absolute URLs for Open Graph
+const resolvedOg = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
+const resolvedCanonical = canonicalUrl ?? siteUrl;
+---
+
+<!-- ── Primary ─────────────────────────── -->
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="author" content="Sandeep Upadhyay" />
+{noIndex && <meta name="robots" content="noindex,nofollow" />}
+<link rel="canonical" href={resolvedCanonical} />
+
+<!-- ── Open Graph ────────────────────────── -->
+<meta property="og:type" content={ogType} />
+<meta property="og:url" content={resolvedCanonical} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={resolvedOg} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="Sandeep Upadhyay" />
+<meta property="og:locale" content="en_US" />
+
+<!-- ── Twitter / X ───────────────────────── -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={resolvedCanonical} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={resolvedOg} />
+<!-- TODO: replace with real handle once confirmed -->
+<!-- <meta name="twitter:creator" content="@sandeepupadhyay" /> -->

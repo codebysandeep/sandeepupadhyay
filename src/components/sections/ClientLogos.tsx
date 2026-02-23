@@ -1,3 +1,5 @@
+import { Icon } from '../common/Icon';
+
 interface Client {
   name: string;
   logo?: string; // URL to logo image (optional, uses text if not provided)
@@ -19,7 +21,7 @@ export function ClientLogos() {
       <div className="container-page">
         {/* Label */}
         <p className="body-small text-stone-700 mb-6 flex items-center gap-2">
-          <span className="material-symbols-outlined icon-sm">verified</span>
+          <Icon name="verified" size="sm" />
           Trusted by Fortune 500 companies
         </p>
 

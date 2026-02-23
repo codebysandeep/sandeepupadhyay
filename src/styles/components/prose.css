@@ -1,0 +1,47 @@
+/*
+ * PROSE / CONTENT STYLES — TinaCMS MDX
+ * Applied to the wrapper of CMS-rendered content (blog posts, articles).
+ * Phase 5: Full styles added when TinaCMS integration is complete.
+ *
+ * Usage:
+ *   <div class="prose">
+ *     <!-- MDX rendered HTML from TinaCMS -->
+ *   </div>
+ *
+ * Note: @tailwindcss/typography plugin (already installed) provides
+ * the base .prose styles. Override tokens here using CSS variables
+ * to stay in sync with the design system.
+ */
+@layer components {
+
+  .prose {
+    /* Inherit brand font */
+    font-family: var(--font-body);
+    color: var(--color-text);
+  }
+
+  /* Link colour matches brand */
+  .prose a {
+    color: var(--color-primary-text);
+    text-decoration-color: var(--color-primary-text);
+  }
+
+  .prose a:hover {
+    color: var(--color-primary);
+  }
+
+  /* Code block background */
+  .prose pre {
+    background-color: var(--stone-950);
+  }
+
+  /* Dark mode overrides */
+  .dark .prose {
+    color: var(--color-text);
+  }
+
+  .dark .prose a {
+    color: var(--orange-400);
+    text-decoration-color: var(--orange-400);
+  }
+}

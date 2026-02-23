@@ -1,0 +1,95 @@
+/*
+ * DESIGN TOKENS
+ * Single source of truth for all CSS custom properties.
+ * Consumed by Tailwind config (via var()) and component styles.
+ * Never put layout or component rules here — only variables.
+ */
+@layer base {
+  :root {
+    /* ── Orange scale ─────────────────────────── */
+    --orange-950: #5a1f0d;
+    --orange-900: #7d2a12;
+    --orange-800: #a03818;
+    --orange-700: #c3461e;
+    --orange-600: #EB5E28; /* brand primary */
+    --orange-500: #f17c52;
+    --orange-400: #f59b7d;
+    --orange-300: #f8b9a7;
+    --orange-200: #fcd8cf;
+    --orange-100: #feede8;
+    --orange-50:  #fff7f5;
+
+    /* ── Stone scale ──────────────────────────── */
+    --stone-950: #1c1917;
+    --stone-900: #292524;
+    --stone-800: #44403c;
+    --stone-700: #57534e;
+    --stone-600: #78716c;
+    --stone-500: #a8a29e;
+    --stone-400: #d6d3d1;
+    --stone-300: #e7e5e4;
+    --stone-200: #f5f5f4;
+    --stone-100: #fafaf9;
+
+    /* ── Status ───────────────────────────────── */
+    --success: #059669;
+    --warning: #ca8a04;
+    --error:   #dc2626;
+    --info:    #0284c7;
+
+    /* ── Semantic tokens — Light ──────────────── */
+    --color-bg:             #ffffff;
+    --color-bg-subtle:      var(--stone-100);
+    --color-bg-raised:      #ffffff;
+    --color-border:         var(--stone-300);
+    --color-border-focus:   var(--orange-600);
+    --color-text:           var(--stone-950);
+    --color-text-secondary: var(--stone-700);
+    --color-text-tertiary:  var(--stone-500);
+    --color-text-inverse:   #ffffff;
+    --color-primary:        var(--orange-900);
+    --color-primary-hover:  var(--orange-800);
+    --color-primary-text:   var(--orange-800);
+    --color-accent:         var(--orange-600);
+
+    /* ── Fonts ────────────────────────────────── */
+    --font-display: 'DM Serif Display', Georgia, serif;
+    --font-body:    'DM Sans', system-ui, sans-serif;
+
+    /* ── Title / Subtitle ─────────────────────── */
+    --title-size: 72px;  --title-lh: 86px;    --title-ls: -2.4px;
+    --subtitle-size: 40px; --subtitle-lh: 52px; --subtitle-ls: -1.0px;
+
+    /* ── Headings ─────────────────────────────── */
+    --h-72: 72px;  --h-72-lh: 79.2px;  --h-72-ls: -2.16px;
+    --h-64: 64px;  --h-64-lh: 70.4px;  --h-64-ls: -1.92px;
+    --h-48: 48px;  --h-48-lh: 52.8px;  --h-48-ls: -1.44px;
+    --h-32: 32px;  --h-32-lh: 38.4px;  --h-32-ls: -0.64px;
+    --h-24: 24px;  --h-24-lh: 28.8px;  --h-24-ls: -0.48px;
+    --h-20: 20px;  --h-20-lh: 26px;    --h-20-ls: -0.2px;
+
+    /* ── Body ─────────────────────────────────── */
+    --p-size: 18px;           --p-lh: 26px;        --p-ls: -0.18px;
+    --text-big-size: 20px;    --text-big-lh: 26px;    --text-big-ls: -0.2px;
+    --text-medium-size: 16px; --text-medium-lh: 20.8px; --text-medium-ls: -0.16px;
+    --text-small-size: 14px;  --text-small-lh: 19.6px;  --text-small-ls: -0.14px;
+  }
+
+  /* ── Semantic tokens — Dark ───────────────── */
+  .dark {
+    --color-bg:             var(--stone-950);
+    --color-bg-subtle:      var(--stone-900);
+    --color-bg-raised:      var(--stone-900);
+    --color-border:         var(--stone-700);
+    --color-border-focus:   var(--orange-500);
+    --color-text:           #f5f5f4;
+    --color-text-secondary: var(--stone-300);
+    --color-text-tertiary:  var(--stone-500);
+    --color-text-inverse:   var(--stone-950);
+    --color-primary:        var(--orange-600);
+    --color-primary-hover:  var(--orange-500);
+    --color-primary-text:   var(--orange-500);
+    --color-accent:         var(--orange-600);
+    /* Typography tokens are mode-independent */
+  }
+}

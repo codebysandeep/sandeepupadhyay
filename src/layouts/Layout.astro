@@ -1,21 +1,35 @@
 ---
 import '../styles/globals.css';
+import SEO from '../components/common/SEO.astro';
 import { Header } from '../components/layout/Header';
 import { Footer } from '../components/layout/Footer';
 
 export interface Props {
+  /** Page title — passed directly to SEO component. */
   title: string;
+  /** Meta description. Defaults to site-wide description if omitted. */
   description?: string;
+  /** Open Graph image path or URL. Defaults to /og-image.png. */
+  ogImage?: string;
+  /** Open Graph type. Use 'article' for blog/CMS pages. */
+  ogType?: 'website' | 'article';
+  /** Canonical URL. Defaults to site root if omitted. */
+  canonicalUrl?: string;
+  /** Block search indexing (404, thank-you pages, etc). */
+  noIndex?: boolean;
+  /** Set false to hide the header (e.g. landing pages). */
   showHeader?: boolean;
 }
 
 const {
   title,
-  description = "Principal Frontend Engineer & UI/UX Director specializing in enterprise design systems, accessibility, and frontend architecture.",
-  showHeader = true
+  description = 'Principal Frontend Engineer & UI/UX Director specializing in enterprise design systems, accessibility, and frontend architecture.',
+  ogImage,
+  ogType,
+  canonicalUrl,
+  noIndex,
+  showHeader = true,
 } = Astro.props;
-
-const siteUrl = "https://sandeepupadhyay.com";
 ---
 
 <!DOCTYPE html>
@@ -24,39 +38,29 @@ const siteUrl = "https://sandeepupadhyay.com";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Primary Meta Tags -->
-    <title>{title}</title>
-    <meta name="title" content={title} />
-    <meta name="description" content={description} />
-    <meta name="author" content="Sandeep Upadhyay" />
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={siteUrl} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={`${siteUrl}/og-image.png`} />
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={siteUrl} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={`${siteUrl}/og-image.png`} />
+    <!-- SEO: title, description, canonical, Open Graph, Twitter -->
+    <SEO
+      title={title}
+      description={description}
+      ogImage={ogImage}
+      ogType={ogType}
+      canonicalUrl={canonicalUrl}
+      noIndex={noIndex}
+    />
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
-    <!-- Google Fonts: DM Serif Display & DM Sans + Material Icons -->
+    <!-- Fonts: DM Serif Display + DM Sans (Material Icons loaded from npm, not CDN) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display:ital@0;1&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display:ital@0;1&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Theme Script (prevent FOUC) -->
+    <!-- Theme: read localStorage / system pref before first paint (prevents FOUC) -->
     <script is:inline>
       const getThemePreference = () => {
         if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
@@ -64,11 +68,10 @@ const siteUrl = "https://sandeepupadhyay.com";
         }
         return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
       };
-
-      const theme = getThemePreference();
-      document.documentElement.classList.toggle('dark', theme === 'dark');
+      document.documentElement.classList.toggle('dark', getThemePreference() === 'dark');
     </script>
   </head>
+
   <body class="min-h-screen bg-background text-foreground font-sans antialiased">
     {showHeader && <Header client:load />}
     <main id="main-content">

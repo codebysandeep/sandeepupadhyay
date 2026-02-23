@@ -1,0 +1,18 @@
+/*
+ * BASE RESET
+ * Minimal browser normalisation + global element defaults.
+ * Use only for html/body/universal rules — no class names here.
+ */
+@layer base {
+  *, *::before, *::after {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}

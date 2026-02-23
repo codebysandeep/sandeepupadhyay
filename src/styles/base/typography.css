@@ -1,0 +1,190 @@
+/*
+ * TYPOGRAPHY SCALE
+ * Named type classes that map to design tokens.
+ * Mobile-first: base values are mobile, media queries add larger sizes.
+ * Usage: <h1 class="title">, <p class="body-p">, etc.
+ */
+@layer components {
+
+  /* ── Title ─────────────────────────────────── */
+  .title {
+    font-family: var(--font-display);
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: -1.2px;
+    font-weight: 400;
+    color: var(--color-text);
+  }
+  @media (min-width: 768px) {
+    .title {
+      font-size: 56px;
+      line-height: 67px;
+      letter-spacing: -1.8px;
+    }
+  }
+  @media (min-width: 1024px) {
+    .title {
+      font-size: var(--title-size);
+      line-height: var(--title-lh);
+      letter-spacing: var(--title-ls);
+    }
+  }
+
+  /* ── Subtitle ───────────────────────────────── */
+  .subtitle {
+    font-family: var(--font-body);
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.6px;
+    font-weight: 300;
+    color: var(--color-text);
+  }
+  @media (min-width: 768px) {
+    .subtitle {
+      font-size: 32px;
+      line-height: 42px;
+      letter-spacing: -0.8px;
+    }
+  }
+  @media (min-width: 1024px) {
+    .subtitle {
+      font-size: var(--subtitle-size);
+      line-height: var(--subtitle-lh);
+      letter-spacing: var(--subtitle-ls);
+    }
+  }
+
+  /* ── Headings ───────────────────────────────── */
+  .display-h1 {
+    font-family: var(--font-body);
+    font-size: 40px;
+    line-height: 44px;
+    letter-spacing: -1.2px;
+    font-weight: 700;
+    color: var(--color-text);
+  }
+  @media (min-width: 768px) {
+    .display-h1 {
+      font-size: 56px;
+      line-height: 62px;
+      letter-spacing: -1.68px;
+    }
+  }
+  @media (min-width: 1024px) {
+    .display-h1 {
+      font-size: var(--h-72);
+      line-height: var(--h-72-lh);
+      letter-spacing: var(--h-72-ls);
+    }
+  }
+
+  .display-h2 {
+    font-family: var(--font-body);
+    font-size: 36px;
+    line-height: 40px;
+    letter-spacing: -1.08px;
+    font-weight: 700;
+    color: var(--color-text);
+  }
+  @media (min-width: 768px) {
+    .display-h2 {
+      font-size: 48px;
+      line-height: 53px;
+      letter-spacing: -1.44px;
+    }
+  }
+  @media (min-width: 1024px) {
+    .display-h2 {
+      font-size: var(--h-64);
+      line-height: var(--h-64-lh);
+      letter-spacing: var(--h-64-ls);
+    }
+  }
+
+  .display-h3 {
+    font-family: var(--font-body);
+    font-size: 28px;
+    line-height: 32px;
+    letter-spacing: -0.84px;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+  @media (min-width: 768px) {
+    .display-h3 {
+      font-size: 36px;
+      line-height: 40px;
+      letter-spacing: -1.08px;
+    }
+  }
+  @media (min-width: 1024px) {
+    .display-h3 {
+      font-size: var(--h-48);
+      line-height: var(--h-48-lh);
+      letter-spacing: var(--h-48-ls);
+    }
+  }
+
+  .display-h4 {
+    font-family: var(--font-body);
+    font-size: var(--h-32);
+    line-height: var(--h-32-lh);
+    letter-spacing: var(--h-32-ls);
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .display-h5 {
+    font-family: var(--font-body);
+    font-size: var(--h-24);
+    line-height: var(--h-24-lh);
+    letter-spacing: var(--h-24-ls);
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .display-h6 {
+    font-family: var(--font-body);
+    font-size: var(--h-20);
+    line-height: var(--h-20-lh);
+    letter-spacing: var(--h-20-ls);
+    font-weight: 500;
+    color: var(--color-text);
+  }
+
+  /* ── Body ───────────────────────────────────── */
+  .body-p {
+    font-family: var(--font-body);
+    font-size: var(--p-size);
+    line-height: var(--p-lh);
+    letter-spacing: var(--p-ls);
+    font-weight: 400;
+    color: var(--color-text-secondary);
+  }
+
+  .body-big {
+    font-family: var(--font-body);
+    font-size: var(--text-big-size);
+    line-height: var(--text-big-lh);
+    letter-spacing: var(--text-big-ls);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+  }
+
+  .body-medium {
+    font-family: var(--font-body);
+    font-size: var(--text-medium-size);
+    line-height: var(--text-medium-lh);
+    letter-spacing: var(--text-medium-ls);
+    font-weight: 400;
+    color: var(--color-text-secondary);
+  }
+
+  .body-small {
+    font-family: var(--font-body);
+    font-size: var(--text-small-size);
+    line-height: var(--text-small-lh);
+    letter-spacing: var(--text-small-ls);
+    font-weight: 400;
+    color: var(--color-text-tertiary);
+  }
+}

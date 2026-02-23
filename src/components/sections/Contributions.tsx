@@ -88,7 +88,7 @@ export function Contributions() {
                     className="w-full h-full object-cover"
                   />
                 ) : (
-                  <Icon name="deployed_code" size="xl" className="text-stone-300 dark:text-stone-600" />
+                  <Icon name="integration_instructions" size="xl" className="text-stone-300 dark:text-stone-600" />
                 )}
 
                 {/* Rating Badge */}
