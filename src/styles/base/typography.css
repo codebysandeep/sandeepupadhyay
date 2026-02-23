@@ -1,26 +1,36 @@
 /*
  * TYPOGRAPHY SCALE
  * Named type classes that map to design tokens.
- * Mobile-first: base values are mobile, media queries add larger sizes.
- * Usage: <h1 class="title">, <p class="body-p">, etc.
+ * Mobile-first: base values target small screens; media queries scale up.
+ *
+ * A11y / SEO notes:
+ *   - rem units → respects user's browser font-size preference (WCAG 1.4.4)
+ *   - Unitless line-height → scales automatically with font size
+ *   - em letter-spacing → scales proportionally with font size
+ *   - heading-* classes: use on semantic <h1>–<h6> elements (SEO / screen readers)
+ *   - display-* classes: use for decorative headings on any element
+ *   - Both share the same visual size scale
+ *
+ * Usage:
+ *   <h1 class="title">Hero headline</h1>
+ *   <h2 class="heading-2">Section heading</h2>
+ *   <h2 class="display-2">Decorative section heading</h2>
+ *   <p  class="body-p">Body paragraph</p>
+ *   <button class="text-button">Call to action</button>
  */
 @layer components {
 
-  /* ── Title ─────────────────────────────────── */
+  /* ── Title (DM Serif Display — decorative hero text) ─── */
   .title {
     font-family: var(--font-display);
-    font-size: 40px;
-    line-height: 48px;
-    letter-spacing: -1.2px;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
     font-weight: 400;
     color: var(--color-text);
   }
   @media (min-width: 768px) {
-    .title {
-      font-size: 56px;
-      line-height: 67px;
-      letter-spacing: -1.8px;
-    }
+    .title { font-size: 3.5rem; letter-spacing: -0.025em; }
   }
   @media (min-width: 1024px) {
     .title {
@@ -30,21 +40,17 @@
     }
   }
 
-  /* ── Subtitle ───────────────────────────────── */
+  /* ── Subtitle ───────────────────────────────────────── */
   .subtitle {
     font-family: var(--font-body);
-    font-size: 24px;
-    line-height: 32px;
-    letter-spacing: -0.6px;
+    font-size: 1.25rem;
+    line-height: 1.4;
+    letter-spacing: -0.015em;
     font-weight: 300;
     color: var(--color-text);
   }
   @media (min-width: 768px) {
-    .subtitle {
-      font-size: 32px;
-      line-height: 42px;
-      letter-spacing: -0.8px;
-    }
+    .subtitle { font-size: 1.625rem; }
   }
   @media (min-width: 1024px) {
     .subtitle {
@@ -54,137 +60,133 @@
     }
   }
 
-  /* ── Headings ───────────────────────────────── */
-  .display-h1 {
+  /* ── Heading 1 / Display 1 — 65px / 4.0625rem ───────── */
+  .heading-1,
+  .display-1 {
     font-family: var(--font-body);
-    font-size: 40px;
-    line-height: 44px;
-    letter-spacing: -1.2px;
+    font-size: 2.5rem;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
     font-weight: 700;
     color: var(--color-text);
   }
   @media (min-width: 768px) {
-    .display-h1 {
-      font-size: 56px;
-      line-height: 62px;
-      letter-spacing: -1.68px;
-    }
+    .heading-1, .display-1 { font-size: 3.25rem; }
   }
   @media (min-width: 1024px) {
-    .display-h1 {
-      font-size: var(--h-72);
-      line-height: var(--h-72-lh);
-      letter-spacing: var(--h-72-ls);
+    .heading-1, .display-1 {
+      font-size: var(--h1-size);
+      line-height: var(--h1-lh);
+      letter-spacing: var(--h1-ls);
     }
   }
 
-  .display-h2 {
+  /* ── Heading 2 / Display 2 — 48px / 3rem ────────────── */
+  .heading-2,
+  .display-2 {
     font-family: var(--font-body);
-    font-size: 36px;
-    line-height: 40px;
-    letter-spacing: -1.08px;
+    font-size: 1.75rem;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
     font-weight: 700;
     color: var(--color-text);
   }
   @media (min-width: 768px) {
-    .display-h2 {
-      font-size: 48px;
-      line-height: 53px;
-      letter-spacing: -1.44px;
-    }
+    .heading-2, .display-2 { font-size: 2.25rem; }
   }
   @media (min-width: 1024px) {
-    .display-h2 {
-      font-size: var(--h-64);
-      line-height: var(--h-64-lh);
-      letter-spacing: var(--h-64-ls);
+    .heading-2, .display-2 {
+      font-size: var(--h2-size);
+      line-height: var(--h2-lh);
+      letter-spacing: var(--h2-ls);
     }
   }
 
-  .display-h3 {
+  /* ── Heading 3 / Display 3 — 32px / 2rem ────────────── */
+  .heading-3,
+  .display-3 {
     font-family: var(--font-body);
-    font-size: 28px;
-    line-height: 32px;
-    letter-spacing: -0.84px;
-    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    font-weight: 700;
     color: var(--color-text);
-  }
-  @media (min-width: 768px) {
-    .display-h3 {
-      font-size: 36px;
-      line-height: 40px;
-      letter-spacing: -1.08px;
-    }
   }
   @media (min-width: 1024px) {
-    .display-h3 {
-      font-size: var(--h-48);
-      line-height: var(--h-48-lh);
-      letter-spacing: var(--h-48-ls);
+    .heading-3, .display-3 {
+      font-size: var(--h3-size);
+      line-height: var(--h3-lh);
+      letter-spacing: var(--h3-ls);
     }
   }
 
-  .display-h4 {
+  /* ── Heading 4 / Display 4 — 24px / 1.5rem ──────────── */
+  .heading-4,
+  .display-4 {
     font-family: var(--font-body);
-    font-size: var(--h-32);
-    line-height: var(--h-32-lh);
-    letter-spacing: var(--h-32-ls);
-    font-weight: 600;
+    font-size: var(--h4-size);
+    line-height: var(--h4-lh);
+    letter-spacing: var(--h4-ls);
+    font-weight: 700;
     color: var(--color-text);
   }
 
-  .display-h5 {
+  /* ── Heading 5 / Display 5 — 18px / 1.125rem ────────── */
+  .heading-5,
+  .display-5 {
     font-family: var(--font-body);
-    font-size: var(--h-24);
-    line-height: var(--h-24-lh);
-    letter-spacing: var(--h-24-ls);
-    font-weight: 600;
+    font-size: var(--h5-size);
+    line-height: var(--h5-lh);
+    letter-spacing: var(--h5-ls);
+    font-weight: 700;
     color: var(--color-text);
   }
 
-  .display-h6 {
+  /* ── Heading 6 / Display 6 — 16px / 1rem ────────────── */
+  .heading-6,
+  .display-6 {
     font-family: var(--font-body);
-    font-size: var(--h-20);
-    line-height: var(--h-20-lh);
-    letter-spacing: var(--h-20-ls);
-    font-weight: 500;
+    font-size: var(--h6-size);
+    line-height: var(--h6-lh);
+    letter-spacing: var(--h6-ls);
+    font-weight: 700;
     color: var(--color-text);
   }
 
-  /* ── Body ───────────────────────────────────── */
+  /* ── Body ───────────────────────────────────────────── */
   .body-p {
     font-family: var(--font-body);
-    font-size: var(--p-size);
-    line-height: var(--p-lh);
-    letter-spacing: var(--p-ls);
+    font-size: var(--body-size);
+    line-height: var(--body-lh);
+    letter-spacing: var(--body-ls);
     font-weight: 400;
-    color: var(--color-text-secondary);
-  }
-
-  .body-big {
-    font-family: var(--font-body);
-    font-size: var(--text-big-size);
-    line-height: var(--text-big-lh);
-    letter-spacing: var(--text-big-ls);
-    font-weight: 500;
     color: var(--color-text-secondary);
   }
 
   .body-medium {
     font-family: var(--font-body);
-    font-size: var(--text-medium-size);
-    line-height: var(--text-medium-lh);
-    letter-spacing: var(--text-medium-ls);
+    font-size: var(--body-medium-size);
+    line-height: var(--body-medium-lh);
+    letter-spacing: var(--body-medium-ls);
     font-weight: 400;
     color: var(--color-text-secondary);
   }
 
   .body-small {
     font-family: var(--font-body);
-    font-size: var(--text-small-size);
-    line-height: var(--text-small-lh);
-    letter-spacing: var(--text-small-ls);
+    font-size: var(--body-small-size);
+    line-height: var(--body-small-lh);
+    letter-spacing: var(--body-small-ls);
     font-weight: 400;
     color: var(--color-text-tertiary);
+  }
+
+  /* ── Button text ────────────────────────────────────── */
+  .text-button {
+    font-family: var(--font-body);
+    font-size: var(--btn-size);
+    line-height: 1;
+    letter-spacing: -0.01em;
+    font-weight: 700;
   }
 }

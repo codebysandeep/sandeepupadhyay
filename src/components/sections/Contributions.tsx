@@ -50,7 +50,7 @@ export function Contributions() {
             </p>
 
             {/* Title */}
-            <h2 className="display-h3 mb-4">
+            <h2 className="display-2 mb-4">
               Signature Systems &<br />
               Enterprise Contributions
             </h2>
@@ -100,7 +100,7 @@ export function Contributions() {
               </div>
 
               {/* Content */}
-              <h3 className="display-h6 mb-2 group-hover:text-orange-600 transition-colors">
+              <h3 className="display-5 mb-2 group-hover:text-orange-600 transition-colors">
                 {item.title}
               </h3>
 
@@ -113,7 +113,7 @@ export function Contributions() {
                 {item.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-2 py-0.5 text-xs font-medium rounded bg-stone-100 dark:bg-stone-800 text-stone-800 dark:text-stone-200"
+                    className="px-2 py-0.5 text-sm font-medium rounded bg-stone-100 dark:bg-stone-800 text-stone-800 dark:text-stone-200"
                   >
                     {tag}
                   </span>

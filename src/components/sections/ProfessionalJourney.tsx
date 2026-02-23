@@ -80,7 +80,7 @@ export function ProfessionalJourney() {
           </p>
 
           {/* Title */}
-          <h2 className="display-h3 mb-4">
+          <h2 className="display-2 mb-4">
             Experience & Growth
           </h2>
 
@@ -125,7 +125,7 @@ export function ProfessionalJourney() {
                     </div>
 
                     {/* Role */}
-                    <h3 className="display-h6 mb-2">{exp.role}</h3>
+                    <h3 className="display-5 mb-2">{exp.role}</h3>
 
                     {/* Company & Location */}
                     <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-4 text-sm text-stone-700">
@@ -149,7 +149,7 @@ export function ProfessionalJourney() {
                       {exp.highlights.map((highlight, i) => (
                         <li
                           key={i}
-                          className="flex items-start gap-2 text-sm text-stone-700 dark:text-stone-300"
+                          className="flex items-start gap-2 text-stone-700 dark:text-stone-300"
                         >
                           <Icon name="check_circle" size="xs" className="text-green-600 mt-0.5 flex-shrink-0" />
                           {highlight}

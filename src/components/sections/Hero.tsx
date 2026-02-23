@@ -15,15 +15,6 @@ const stats: Stat[] = [
 export function Hero() {
   return (
     <section className="relative overflow-hidden py-12 lg:py-20">
-      {/* Decorative fluid name watermark */}
-      <div className="container-page watermark-wrapper">
-        <h2
-          className="name-watermark hero-name-watermark"
-          aria-hidden="true"
-        >
-          Sandeep Upadhyay
-        </h2>
-      </div>
 
       <div className="container-page">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
@@ -83,7 +74,7 @@ export function Hero() {
 
                 {/* Profile info */}
                 <div className="text-center">
-                  <h2 className="display-h5 mb-1">Sandeep Upadhyay</h2>
+                  <h2 className="display-4 mb-1">Sandeep Upadhyay</h2>
                   <p className="body-medium text-stone-700">
                     Principal Frontend Engineer
                     <br />

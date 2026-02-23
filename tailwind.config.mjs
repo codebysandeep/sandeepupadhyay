@@ -78,22 +78,22 @@ export default {
       },
 
       /* ── Type Scale ── */
+      /* All values in rem — respects user browser font-size preference (WCAG 1.4.4) */
       fontSize: {
-        // Body
-        'text-small': ['14px', { lineHeight: '19.6px', letterSpacing: '-0.14px' }],
-        'text-medium': ['16px', { lineHeight: '20.8px', letterSpacing: '-0.16px' }],
-        p: ['18px', { lineHeight: '26px', letterSpacing: '-0.18px' }],
-        'text-big': ['20px', { lineHeight: '26px', letterSpacing: '-0.2px' }],
-        // Headings
-        h6: ['20px', { lineHeight: '26px', letterSpacing: '-0.2px' }],
-        h5: ['24px', { lineHeight: '28.8px', letterSpacing: '-0.48px' }],
-        h4: ['32px', { lineHeight: '38.4px', letterSpacing: '-0.64px' }],
-        h3: ['48px', { lineHeight: '52.8px', letterSpacing: '-1.44px' }],
-        h2: ['64px', { lineHeight: '70.4px', letterSpacing: '-1.92px' }],
-        h1: ['72px', { lineHeight: '79.2px', letterSpacing: '-2.16px' }],
+        // Body scale
+        'body-small':   ['0.875rem', { lineHeight: '1.55', letterSpacing: '-0.01em' }],
+        'body-medium':  ['1rem',     { lineHeight: '1.5',  letterSpacing: '-0.01em' }],
+        body:           ['1.125rem', { lineHeight: '1.6',  letterSpacing: '-0.01em' }],
+        // Display / Heading scale (matches CSS classes in base/typography.css)
+        h6: ['1rem',       { lineHeight: '1.3',  letterSpacing: '-0.01em'  }],
+        h5: ['1.125rem',   { lineHeight: '1.45', letterSpacing: '-0.01em'  }],
+        h4: ['1.5rem',     { lineHeight: '1.2',  letterSpacing: '-0.015em' }],
+        h3: ['2rem',       { lineHeight: '1.2',  letterSpacing: '-0.02em'  }],
+        h2: ['3rem',       { lineHeight: '1.1',  letterSpacing: '-0.025em' }],
+        h1: ['4.0625rem',  { lineHeight: '1.1',  letterSpacing: '-0.03em'  }],
         // Title / Subtitle
-        subtitle: ['40px', { lineHeight: '52px', letterSpacing: '-1.0px' }],
-        title: ['72px', { lineHeight: '86px', letterSpacing: '-2.4px' }],
+        subtitle: ['2rem',    { lineHeight: '1.3', letterSpacing: '-0.025em' }],
+        title:    ['4.5rem',  { lineHeight: '1.2', letterSpacing: '-0.03em'  }],
       },
 
       /* ── Border Radius ── */

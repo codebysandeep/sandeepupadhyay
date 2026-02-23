@@ -64,7 +64,7 @@ export function Articles() {
             </p>
 
             {/* Title */}
-            <h2 className="display-h3 mb-4">
+            <h2 className="display-2 mb-4">
               Insights & Perspectives
             </h2>
 
@@ -105,7 +105,7 @@ export function Articles() {
                   )}
 
                   {/* Featured Badge */}
-                  <div className="absolute top-3 left-3 px-3 py-1 bg-orange-900 text-white text-xs font-bold rounded-full">
+                  <div className="absolute top-3 left-3 px-3 py-1 bg-orange-900 text-white text-sm font-bold rounded-full">
                     Featured
                   </div>
                 </div>
@@ -123,7 +123,7 @@ export function Articles() {
                 </div>
 
                 {/* Title */}
-                <h3 className="display-h5 mb-3 group-hover:text-orange-700 transition-colors">
+                <h3 className="display-4 mb-3 group-hover:text-orange-700 transition-colors">
                   {featuredArticle.title}
                 </h3>
 
@@ -164,7 +164,7 @@ export function Articles() {
                   {/* Content */}
                   <div className="flex-1 min-w-0">
                     {/* Meta */}
-                    <div className="flex items-center gap-2 mb-2 text-xs text-stone-700">
+                    <div className="flex items-center gap-2 mb-2 text-sm text-stone-700">
                       <span className="px-2 py-0.5 bg-stone-100 dark:bg-stone-800 text-stone-800 dark:text-stone-200 rounded font-medium">
                         {article.category}
                       </span>
@@ -182,7 +182,7 @@ export function Articles() {
                     </p>
 
                     {/* Date */}
-                    <p className="mt-2 text-xs text-stone-800 dark:text-stone-200">
+                    <p className="mt-2 text-sm text-stone-800 dark:text-stone-200">
                       {article.date}
                     </p>
                   </div>

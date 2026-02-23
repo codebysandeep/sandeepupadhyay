@@ -95,14 +95,14 @@ export function YouTubeSection() {
 
                 {/* Duration Badge */}
                 {featuredVideo.duration && (
-                  <div className="absolute bottom-3 right-3 px-2 py-1 bg-black/80 rounded text-xs text-white font-medium">
+                  <div className="absolute bottom-3 right-3 px-2 py-1 bg-black/80 rounded text-sm text-white font-medium">
                     {featuredVideo.duration}
                   </div>
                 )}
               </div>
 
               {/* Video Info */}
-              <h3 className="display-h5 group-hover:text-orange-600 transition-colors mb-2">
+              <h3 className="display-4 group-hover:text-orange-600 transition-colors mb-2">
                 {featuredVideo.title}
               </h3>
               <p className="body-medium">
@@ -135,7 +135,7 @@ export function YouTubeSection() {
 
                   {/* Duration */}
                   {video.duration && (
-                    <div className="absolute bottom-1 right-1 px-1.5 py-0.5 bg-black/80 rounded text-xs text-white">
+                    <div className="absolute bottom-1 right-1 px-1.5 py-0.5 bg-black/80 rounded text-sm text-white">
                       {video.duration}
                     </div>
                   )}

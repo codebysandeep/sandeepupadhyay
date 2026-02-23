@@ -47,7 +47,7 @@ export function Leadership() {
           </p>
 
           {/* Title */}
-          <h2 className="display-h3 mb-4">
+          <h2 className="display-2 mb-4">
             Driving Industry Change
           </h2>
 
@@ -78,7 +78,7 @@ export function Leadership() {
               )}
 
               {/* Title */}
-              <h3 className="display-h6 mb-3 group-hover:text-orange-600 transition-colors">
+              <h3 className="display-5 mb-3 group-hover:text-orange-600 transition-colors">
                 {item.title}
               </h3>
 

@@ -74,14 +74,14 @@ export function Footer() {
             </a>
 
             {/* Bio */}
-            <p className="text-sm text-stone-800 dark:text-stone-200 leading-relaxed max-w-sm">
+            <p className="text-stone-800 dark:text-stone-200 leading-relaxed max-w-sm">
               {profile.bio}
             </p>
           </div>
 
           {/* Navigation Column */}
           <div className="lg:col-span-3">
-            <h3 className="text-base font-semibold text-[#1C1917] dark:text-white mb-6">
+            <h3 className="display-4 dark:text-white mb-6">
               Navigation
             </h3>
             <ul className="space-y-3">
@@ -89,7 +89,7 @@ export function Footer() {
                 <li key={item.label}>
                   <a
                     href={item.href}
-                    className="text-sm text-stone-800 dark:text-stone-200 hover:text-orange-700 dark:hover:text-orange-400 transition-colors"
+                    className="text-stone-800 dark:text-stone-200 hover:text-orange-700 dark:hover:text-orange-400 transition-colors"
                   >
                     {item.label}
                   </a>
@@ -102,8 +102,8 @@ export function Footer() {
           <div className="lg:col-span-5">
             {/* Header */}
             <div className="flex items-center gap-3 mb-6">
-              <Icon name="mail" size="md" className="text-[#1C1917] dark:text-white" />
-              <h3 className="text-base font-semibold text-[#1C1917] dark:text-white">
+              <Icon name="mail" size="md" className="dark:text-white" />
+              <h3 className="display-4 dark:text-white">
                 Stay Update
               </h3>
             </div>
@@ -114,12 +114,12 @@ export function Footer() {
                 <input
                   type="email"
                   placeholder="Enter your email address"
-                  className="flex-1 px-4 py-3 bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 rounded-lg text-[#1C1917] dark:text-white placeholder-stone-400 dark:placeholder-stone-500 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-colors text-sm"
+                  className="flex-1 px-4 py-3 bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 rounded-lg text-[#1C1917] dark:text-white placeholder-stone-400 dark:placeholder-stone-500 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-colors"
                   aria-label="Email address"
                 />
                 <button
                   type="submit"
-                  className="px-6 py-3 bg-[#1C1917] dark:bg-white text-white dark:text-stone-900 text-sm font-medium rounded-lg hover:bg-stone-800 dark:hover:bg-stone-100 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-600 focus-visible:ring-offset-2"
+                  className="px-6 py-3 bg-[#1C1917] dark:bg-white text-white dark:text-stone-900 font-medium rounded-lg hover:bg-stone-800 dark:hover:bg-stone-100 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-600 focus-visible:ring-offset-2"
                 >
                   Subscribe
                 </button>
@@ -127,7 +127,7 @@ export function Footer() {
             </form>
 
             {/* Disclaimer */}
-            <p className="text-xs text-stone-700 dark:text-stone-300 mb-8">
+            <p className="text-stone-700 dark:text-stone-300 mb-8">
               By subscribing, you agree to receive occasional emails. Unsubscribe anytime.
             </p>
 
@@ -166,7 +166,7 @@ export function Footer() {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             {/* Copyright */}
             <p className="text-sm text-stone-700 dark:text-stone-300">
-              © {currentYear} Sandeep Upadhyay. All rights reserved.
+              &copy; {currentYear} Sandeep Upadhyay. All rights reserved.
             </p>
 
             {/* Legal Links */}

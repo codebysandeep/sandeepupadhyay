@@ -53,7 +53,7 @@ export function Expertise() {
             </p>
 
             {/* Title */}
-            <h2 className="display-h3 mb-6">
+            <h2 className="display-2 mb-6">
               Areas of
               <br />
               Specialized
@@ -83,7 +83,7 @@ export function Expertise() {
                 {/* Content */}
                 <div className="flex-1 min-w-0">
                   <div className="flex items-start justify-between gap-4 mb-2">
-                    <h3 className="display-h6 group-hover:text-orange-600 transition-colors">
+                    <h3 className="display-5 group-hover:text-orange-600 transition-colors">
                       {item.title}
                     </h3>
                     <span className="flex-shrink-0 text-2xl font-bold text-stone-600 dark:text-stone-400" aria-hidden="true">
@@ -98,7 +98,7 @@ export function Expertise() {
                     {item.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-2.5 py-1 text-xs font-medium rounded-full bg-stone-100 dark:bg-stone-800 text-stone-800 dark:text-stone-200"
+                        className="px-2.5 py-1 text-sm font-medium rounded-full bg-stone-100 dark:bg-stone-800 text-stone-800 dark:text-stone-200"
                       >
                         {tag}
                       </span>

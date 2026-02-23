@@ -108,7 +108,7 @@ export function Header() {
               <li key={item.label}>
                 <a
                   href={item.href}
-                  className="px-4 py-2 text-sm font-medium text-[#1C1917] dark:text-stone-200 hover:text-orange-600 dark:hover:text-orange-500 transition-colors rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-600"
+                  className="px-4 py-2 font-medium text-[#1C1917] dark:text-stone-200 hover:text-orange-600 dark:hover:text-orange-500 transition-colors rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-600"
                 >
                   {item.label}
                 </a>
@@ -121,7 +121,7 @@ export function Header() {
             {/* Contact Button */}
             <a
               href="#contact"
-              className="px-5 py-2 bg-[#1C1917] dark:bg-white text-white dark:text-stone-900 text-sm font-medium rounded-full hover:bg-stone-800 dark:hover:bg-stone-100 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-600 focus-visible:ring-offset-2"
+              className="px-5 py-2 bg-[#1C1917] dark:bg-white text-white dark:text-stone-900 font-medium rounded-full hover:bg-stone-800 dark:hover:bg-stone-100 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-600 focus-visible:ring-offset-2"
             >
               Contact
             </a>
