@@ -1,345 +1,957 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const orangeScale = [
+  { shade: '50',  hex: '#fff7f5', textClass: 'text-stone-700' },
+  { shade: '100', hex: '#feede8', textClass: 'text-stone-700' },
+  { shade: '200', hex: '#fcd8cf', textClass: 'text-stone-700' },
+  { shade: '300', hex: '#f8b9a7', textClass: 'text-stone-700' },
+  { shade: '400', hex: '#f59b7d', textClass: 'text-stone-800' },
+  { shade: '500', hex: '#f17c52', textClass: 'text-white' },
+  { shade: '600', hex: '#EB5E28', textClass: 'text-white', label: 'Brand' },
+  { shade: '700', hex: '#c3461e', textClass: 'text-white' },
+  { shade: '800', hex: '#a03818', textClass: 'text-white' },
+  { shade: '900', hex: '#7d2a12', textClass: 'text-white' },
+  { shade: '950', hex: '#5a1f0d', textClass: 'text-white' },
+];
+
+const stoneScale = [
+  { shade: '100', hex: '#fafaf9', textClass: 'text-stone-600' },
+  { shade: '200', hex: '#f5f5f4', textClass: 'text-stone-600' },
+  { shade: '300', hex: '#e7e5e4', textClass: 'text-stone-600' },
+  { shade: '400', hex: '#d6d3d1', textClass: 'text-stone-700' },
+  { shade: '500', hex: '#a8a29e', textClass: 'text-white' },
+  { shade: '600', hex: '#78716c', textClass: 'text-white' },
+  { shade: '700', hex: '#57534e', textClass: 'text-white' },
+  { shade: '800', hex: '#44403c', textClass: 'text-white' },
+  { shade: '900', hex: '#292524', textClass: 'text-white' },
+  { shade: '950', hex: '#1c1917', textClass: 'text-white' },
+];
+
+const spacingScale = [
+  { name: '1',  px: '4px',   size: 'w-1'  },
+  { name: '2',  px: '8px',   size: 'w-2'  },
+  { name: '3',  px: '12px',  size: 'w-3'  },
+  { name: '4',  px: '16px',  size: 'w-4'  },
+  { name: '5',  px: '20px',  size: 'w-5'  },
+  { name: '6',  px: '24px',  size: 'w-6'  },
+  { name: '8',  px: '32px',  size: 'w-8'  },
+  { name: '10', px: '40px',  size: 'w-10' },
+  { name: '12', px: '48px',  size: 'w-12' },
+  { name: '16', px: '64px',  size: 'w-16' },
+  { name: '20', px: '80px',  size: 'w-20' },
+  { name: '24', px: '96px',  size: 'w-24' },
+  { name: '32', px: '128px', size: 'w-32' },
+  { name: '40', px: '160px', size: 'w-40' },
+  { name: '48', px: '192px', size: 'w-48' },
+  { name: '64', px: '256px', size: 'w-64' },
+];
+
+const radii = [
+  { name: 'rounded-sm',   value: '0.25rem / 4px',  class: 'rounded-sm'   },
+  { name: 'rounded',      value: '0.25rem / 4px',   class: 'rounded'      },
+  { name: 'rounded-md',   value: '0.375rem / 6px',  class: 'rounded-md'   },
+  { name: 'rounded-lg',   value: '0.5rem / 8px',    class: 'rounded-lg'   },
+  { name: 'rounded-xl',   value: '0.75rem / 12px',  class: 'rounded-xl'   },
+  { name: 'rounded-2xl',  value: '1rem / 16px',     class: 'rounded-2xl'  },
+  { name: 'rounded-3xl',  value: '1.5rem / 24px',   class: 'rounded-3xl'  },
+  { name: 'rounded-full', value: '9999px',           class: 'rounded-full' },
+];
+
+const sampleIcons = [
+  'home', 'person', 'mail', 'menu', 'close', 'search',
+  'arrow_forward', 'arrow_back', 'check', 'add', 'edit', 'delete',
+  'star', 'favorite', 'share', 'download', 'upload', 'settings',
+  'light_mode', 'dark_mode', 'code', 'design_services', 'palette', 'brush',
+];
+
+const toc = [
+  { id: 'colors',     label: 'Colors'      },
+  { id: 'typography', label: 'Typography'  },
+  { id: 'spacing',    label: 'Spacing'     },
+  { id: 'borders',    label: 'Borders'     },
+  { id: 'shadows',    label: 'Shadows'     },
+  { id: 'icons',      label: 'Icons'       },
+  { id: 'components', label: 'Components'  },
+];
 ---
 
-<Layout title="Design System | Sandeep Upadhyay">
+<Layout title="Design System | Sandeep Upadhyay" noIndex={true}>
   <div class="container-page py-12">
-    <!-- Page Header -->
-    <header class="mb-16">
-      <h1 class="display-h3 mb-4">Design System</h1>
+
+    <!-- ── Page Header ───────────────────────────────────── -->
+    <header class="mb-12 pb-8 border-b border-border">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-orange-100 text-orange-700 dark:bg-orange-950/40 dark:text-orange-400 uppercase tracking-wider">Internal Reference</span>
+      </div>
+      <h1 class="display-2 mb-3">Design System</h1>
       <p class="body-p max-w-2xl">
-        A comprehensive guide to the typography, colors, and components used throughout the website.
+        Single source of truth for colors, typography, spacing, borders, icons, and UI components used across <strong>sandeepupadhyay.com</strong>.
       </p>
     </header>
 
-    <!-- Table of Contents -->
-    <nav class="mb-16 p-6 border border-border rounded-lg bg-secondary">
-      <h2 class="display-h6 mb-4">Contents</h2>
-      <ul class="space-y-2 body-medium">
-        <li><a href="#typography" class="text-orange-600 hover:underline">Typography</a></li>
-        <li><a href="#colors" class="text-orange-600 hover:underline">Colors</a></li>
-        <li><a href="#buttons" class="text-orange-600 hover:underline">Buttons</a></li>
-        <li><a href="#spacing" class="text-orange-600 hover:underline">Spacing & Layout</a></li>
-        <li><a href="#breakpoints" class="text-orange-600 hover:underline">Breakpoints</a></li>
-      </ul>
-    </nav>
+    <div class="lg:grid lg:grid-cols-[220px_1fr] lg:gap-16 lg:items-start">
 
-    <!-- Typography Section -->
-    <section id="typography" class="mb-20">
-      <h2 class="display-h4 mb-2">Typography</h2>
-      <p class="body-p mb-8">Two font families: <strong>DM Serif Display</strong> for titles, <strong>DM Sans</strong> for everything else.</p>
+      <!-- ── Sticky Sidebar TOC ──────────────────────────── -->
+      <aside class="hidden lg:block sticky top-24 self-start">
+        <p class="display-6 text-stone-500 uppercase tracking-wider mb-4">Contents</p>
+        <nav>
+          <ul class="space-y-1">
+            {toc.map(item => (
+              <li>
+                <a
+                  href={`#${item.id}`}
+                  class="flex items-center gap-2 px-3 py-2 rounded-lg body-medium text-stone-600 dark:text-stone-400 hover:text-orange-600 dark:hover:text-orange-400 hover:bg-secondary transition-colors"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
-      <!-- Title & Subtitle -->
-      <div class="mb-12">
-        <h3 class="display-h6 mb-4 text-stone-500">Title & Subtitle</h3>
-        <div class="space-y-4">
-          <div class="p-6 border border-border rounded-lg">
-            <div class="flex items-baseline justify-between mb-2">
-              <span class="body-small text-stone-500">Title</span>
-              <span class="body-small text-stone-400">DM Serif Display / 72px / 400</span>
+        <!-- Theme note -->
+        <div class="mt-8 p-3 rounded-lg bg-secondary border border-border">
+          <p class="body-small">
+            Toggle theme with the <strong>sun/moon</strong> icon in the header to preview light and dark modes.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ── Main Content ────────────────────────────────── -->
+      <div class="space-y-24 min-w-0">
+
+        <!-- ══════════════════════════════════════════════
+             1. COLORS
+        ══════════════════════════════════════════════ -->
+        <section id="colors">
+          <h2 class="display-3 mb-2">Colors</h2>
+          <p class="body-p mb-10">Brand orange as primary, stone for neutrals. Semantic tokens abstract the raw scale for theme-aware usage.</p>
+
+          <!-- 1a. Semantic Tokens -->
+          <div class="mb-12">
+            <h3 class="display-6 text-stone-500 uppercase tracking-wider mb-5">Semantic Tokens</h3>
+            <p class="body-medium mb-6">Use these in components — they automatically switch between light and dark mode via CSS variables.</p>
+            <div class="grid sm:grid-cols-2 gap-3">
+              {[
+                { token: 'background',  var: '--color-bg',             light: '#ffffff',  dark: '#1c1917', desc: 'Page & component backgrounds'        },
+                { token: 'secondary',   var: '--color-bg-subtle',       light: '#fafaf9',  dark: '#292524', desc: 'Subtle surface (cards, inputs)'       },
+                { token: 'foreground',  var: '--color-text',            light: '#1c1917',  dark: '#f5f5f4', desc: 'Primary text'                         },
+                { token: 'muted',       var: '--color-text-secondary',  light: '#57534e',  dark: '#e7e5e4', desc: 'Secondary / muted text'               },
+                { token: 'border',      var: '--color-border',          light: '#d6d3d1',  dark: '#78716c', desc: 'Dividers and input borders'            },
+                { token: 'primary',     var: '--color-primary',         light: '#7d2a12',  dark: '#EB5E28', desc: 'Primary action foreground'             },
+                { token: 'accent',      var: '--color-accent',          light: '#EB5E28',  dark: '#EB5E28', desc: 'Brand highlight / icon accent'         },
+                { token: 'ring',        var: '--color-border-focus',    light: '#EB5E28',  dark: '#f17c52', desc: 'Focus ring color'                      },
+              ].map(t => (
+                <div class="flex items-center gap-4 p-4 border border-border rounded-xl bg-background">
+                  <div class="flex gap-1.5 shrink-0">
+                    <div class="w-8 h-8 rounded-lg border border-stone-300 dark:border-stone-600" style={`background:${t.light}`} title={`Light: ${t.light}`}></div>
+                    <div class="w-8 h-8 rounded-lg border border-stone-600" style={`background:${t.dark}`} title={`Dark: ${t.dark}`}></div>
+                  </div>
+                  <div class="min-w-0">
+                    <p class="body-medium font-semibold leading-tight"><code class="text-orange-600 dark:text-orange-400">{t.token}</code></p>
+                    <p class="body-small truncate">{t.desc}</p>
+                  </div>
+                </div>
+              ))}
             </div>
-            <p class="title">Rive Profit. Mitigate Risk.</p>
           </div>
-          <div class="p-6 border border-border rounded-lg">
-            <div class="flex items-baseline justify-between mb-2">
-              <span class="body-small text-stone-500">Subtitle</span>
-              <span class="body-small text-stone-400">DM Sans / 40px / 300</span>
+
+          <!-- 1b. Orange Scale -->
+          <div class="mb-12">
+            <h3 class="display-6 text-stone-500 uppercase tracking-wider mb-5">Orange — Brand Primary</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+              {orangeScale.map(c => (
+                <div class="rounded-xl overflow-hidden border border-stone-300 dark:border-stone-600">
+                  <div class="h-16" style={`background:${c.hex}`}></div>
+                  <div class="px-3 py-2 bg-background">
+                    <div class="flex items-center justify-between gap-2">
+                      <span class="body-small font-semibold text-foreground">orange-{c.shade}</span>
+                      {c.label && <span class="text-xs px-1.5 py-0.5 rounded bg-orange-100 dark:bg-orange-950/40 text-orange-700 dark:text-orange-400 font-semibold">{c.label}</span>}
+                    </div>
+                    <span class="body-small font-mono">{c.hex}</span>
+                  </div>
+                </div>
+              ))}
             </div>
-            <p class="subtitle">Leading enterprise-scale digital transformation</p>
           </div>
-        </div>
-      </div>
 
-      <!-- Headings -->
-      <div class="mb-12">
-        <h3 class="display-h6 mb-4 text-stone-500">Headings</h3>
-        <div class="space-y-3">
-          <div class="p-4 border border-border rounded-lg flex items-baseline justify-between gap-4">
-            <h1 class="display-h1 truncate">Heading 1</h1>
-            <span class="body-small text-stone-400 whitespace-nowrap">72px / 700</span>
-          </div>
-          <div class="p-4 border border-border rounded-lg flex items-baseline justify-between gap-4">
-            <h2 class="display-h2 truncate">Heading 2</h2>
-            <span class="body-small text-stone-400 whitespace-nowrap">64px / 700</span>
-          </div>
-          <div class="p-4 border border-border rounded-lg flex items-baseline justify-between gap-4">
-            <h3 class="display-h3 truncate">Heading 3</h3>
-            <span class="body-small text-stone-400 whitespace-nowrap">48px / 600</span>
-          </div>
-          <div class="p-4 border border-border rounded-lg flex items-baseline justify-between gap-4">
-            <h4 class="display-h4 truncate">Heading 4</h4>
-            <span class="body-small text-stone-400 whitespace-nowrap">32px / 600</span>
-          </div>
-          <div class="p-4 border border-border rounded-lg flex items-baseline justify-between gap-4">
-            <h5 class="display-h5 truncate">Heading 5</h5>
-            <span class="body-small text-stone-400 whitespace-nowrap">24px / 600</span>
-          </div>
-          <div class="p-4 border border-border rounded-lg flex items-baseline justify-between gap-4">
-            <h6 class="display-h6 truncate">Heading 6</h6>
-            <span class="body-small text-stone-400 whitespace-nowrap">20px / 500</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Body Text -->
-      <div>
-        <h3 class="display-h6 mb-4 text-stone-500">Body Text</h3>
-        <div class="space-y-3">
-          <div class="p-4 border border-border rounded-lg">
-            <div class="flex items-baseline justify-between mb-2">
-              <span class="body-small text-stone-500">Body Big</span>
-              <span class="body-small text-stone-400">20px / 500</span>
+          <!-- 1c. Stone Scale -->
+          <div class="mb-12">
+            <h3 class="display-6 text-stone-500 uppercase tracking-wider mb-5">Stone — Neutral</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+              {stoneScale.map(c => (
+                <div class="rounded-xl overflow-hidden border border-stone-300 dark:border-stone-600">
+                  <div class="h-16 border-b border-stone-200 dark:border-stone-700" style={`background:${c.hex}`}></div>
+                  <div class="px-3 py-2 bg-background">
+                    <span class="body-small font-semibold text-foreground block">stone-{c.shade}</span>
+                    <span class="body-small font-mono">{c.hex}</span>
+                  </div>
+                </div>
+              ))}
             </div>
-            <p class="body-big">Used for emphasized body content and introductions.</p>
           </div>
-          <div class="p-4 border border-border rounded-lg">
-            <div class="flex items-baseline justify-between mb-2">
-              <span class="body-small text-stone-500">Body P (Default)</span>
-              <span class="body-small text-stone-400">18px / 400</span>
+
+          <!-- 1d. Status Colors -->
+          <div>
+            <h3 class="display-6 text-stone-500 uppercase tracking-wider mb-5">Status / Semantic</h3>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {[
+                { name: 'Success', bg: 'bg-success',  hex: '#059669', text: 'text-white', usage: 'Confirmations, completed states'  },
+                { name: 'Warning', bg: 'bg-warning',  hex: '#ca8a04', text: 'text-white', usage: 'Cautions, advisory messages'      },
+                { name: 'Error',   bg: 'bg-error',    hex: '#dc2626', text: 'text-white', usage: 'Failures, destructive actions'    },
+                { name: 'Info',    bg: 'bg-info',     hex: '#0284c7', text: 'text-white', usage: 'Neutral information, tips'        },
+              ].map(s => (
+                <div class="rounded-xl overflow-hidden border border-stone-300 dark:border-stone-600">
+                  <div class={`h-16 flex items-center justify-center ${s.bg}`}>
+                    <span class={`font-semibold ${s.text}`}>{s.name}</span>
+                  </div>
+                  <div class="px-3 py-2 bg-background">
+                    <span class="body-small font-mono block">{s.hex}</span>
+                    <span class="body-small">{s.usage}</span>
+                  </div>
+                </div>
+              ))}
             </div>
-            <p class="body-p">The default paragraph style for general content throughout the website.</p>
           </div>
-          <div class="p-4 border border-border rounded-lg">
-            <div class="flex items-baseline justify-between mb-2">
-              <span class="body-small text-stone-500">Body Medium</span>
-              <span class="body-small text-stone-400">16px / 400</span>
+        </section>
+
+        <!-- ══════════════════════════════════════════════
+             2. TYPOGRAPHY
+        ══════════════════════════════════════════════ -->
+        <section id="typography">
+          <h2 class="display-3 mb-2">Typography</h2>
+          <p class="body-p mb-10">
+            Two typefaces: <strong>DM Serif Display</strong> (decorative, weight 400) for the <code class="bg-secondary px-1.5 py-0.5 rounded text-sm">.title</code> class only.
+            <strong>DM Sans</strong> (variable, weights 300–700) for all other text.
+          </p>
+
+          <!-- 2a. Title & Subtitle -->
+          <div class="mb-10">
+            <h3 class="display-6 text-stone-500 uppercase tracking-wider mb-5">Title & Subtitle</h3>
+            <div class="space-y-3">
+              <div class="p-6 border border-border rounded-xl bg-background">
+                <div class="flex items-start justify-between gap-4 mb-3 flex-wrap">
+                  <code class="text-sm bg-orange-100 dark:bg-orange-950/40 text-orange-700 dark:text-orange-400 px-2 py-1 rounded">.title</code>
+                  <span class="body-small text-stone-400">DM Serif Display · 4.5rem (desktop) · weight 400</span>
+                </div>
+                <p class="title">Drive Profit. Mitigate Risk.</p>
+              </div>
+              <div class="p-6 border border-border rounded-xl bg-background">
+                <div class="flex items-start justify-between gap-4 mb-3 flex-wrap">
+                  <code class="text-sm bg-orange-100 dark:bg-orange-950/40 text-orange-700 dark:text-orange-400 px-2 py-1 rounded">.subtitle</code>
+                  <span class="body-small text-stone-400">DM Sans · 2rem (desktop) · weight 300</span>
+                </div>
+                <p class="subtitle">Leading enterprise-scale digital transformation</p>
+              </div>
             </div>
-            <p class="body-medium">Secondary content, descriptions, and supporting text.</p>
           </div>
-          <div class="p-4 border border-border rounded-lg">
-            <div class="flex items-baseline justify-between mb-2">
-              <span class="body-small text-stone-500">Body Small</span>
-              <span class="body-small text-stone-400">14px / 400</span>
+
+          <!-- 2b. Heading / Display Scale -->
+          <div class="mb-10">
+            <h3 class="display-6 text-stone-500 uppercase tracking-wider mb-2">Heading & Display Scale</h3>
+            <p class="body-medium mb-5">
+              Both <code class="bg-secondary px-1.5 py-0.5 rounded text-sm">.heading-N</code> and <code class="bg-secondary px-1.5 py-0.5 rounded text-sm">.display-N</code> render identically.
+              Use <code class="bg-secondary px-1.5 py-0.5 rounded text-sm">.heading-N</code> on semantic <code class="bg-secondary px-1.5 py-0.5 rounded text-sm">&lt;h1&gt;–&lt;h6&gt;</code> for SEO/a11y;
+              use <code class="bg-secondary px-1.5 py-0.5 rounded text-sm">.display-N</code> for decorative text on any element.
+            </p>
+            <div class="space-y-3">
+              {[
+                { cls: 'display-1', size: '4.0625rem / ~65px', preview: 'Display 1 — Enterprise Scale'        },
+                { cls: 'display-2', size: '3rem / 48px',       preview: 'Display 2 — Design Systems'          },
+                { cls: 'display-3', size: '2rem / 32px',        preview: 'Display 3 — Frontend Architecture'  },
+                { cls: 'display-4', size: '1.5rem / 24px',      preview: 'Display 4 — Accessibility First'    },
+                { cls: 'display-5', size: '1.125rem / 18px',    preview: 'Display 5 — Principal Engineer'     },
+                { cls: 'display-6', size: '1rem / 16px',         preview: 'Display 6 — Section Label'          },
+              ].map(h => (
+                <div class="p-4 border border-border rounded-xl bg-background flex items-baseline justify-between gap-4 flex-wrap">
+                  <div class="flex items-baseline gap-4 min-w-0">
+                    <code class="shrink-0 text-xs bg-orange-100 dark:bg-orange-950/40 text-orange-700 dark:text-orange-400 px-2 py-1 rounded">.{h.cls}</code>
+                    <span class={h.cls + ' truncate'}>{h.preview}</span>
+                  </div>
+                  <span class="body-small text-stone-400 shrink-0">DM Sans · {h.size} · w700</span>
+                </div>
+              ))}
             </div>
-            <p class="body-small">Captions, metadata, labels, and fine print.</p>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Colors Section -->
-    <section id="colors" class="mb-20">
-      <h2 class="display-h4 mb-2">Colors</h2>
-      <p class="body-p mb-8">Brand orange as primary, stone for neutrals, with semantic colors for feedback.</p>
-
-      <!-- Orange -->
-      <div class="mb-8">
-        <h3 class="display-h6 mb-4">Orange <span class="text-stone-500 font-normal">(Brand Primary)</span></h3>
-        <div class="grid grid-cols-6 sm:grid-cols-11 gap-2">
-          {[
-            { shade: '50', bg: 'bg-orange-50', text: 'text-stone-700' },
-            { shade: '100', bg: 'bg-orange-100', text: 'text-stone-700' },
-            { shade: '200', bg: 'bg-orange-200', text: 'text-stone-700' },
-            { shade: '300', bg: 'bg-orange-300', text: 'text-stone-700' },
-            { shade: '400', bg: 'bg-orange-400', text: 'text-stone-800' },
-            { shade: '500', bg: 'bg-orange-500', text: 'text-white' },
-            { shade: '600', bg: 'bg-orange-600', text: 'text-white' },
-            { shade: '700', bg: 'bg-orange-700', text: 'text-white' },
-            { shade: '800', bg: 'bg-orange-800', text: 'text-white' },
-            { shade: '900', bg: 'bg-orange-900', text: 'text-white' },
-            { shade: '950', bg: 'bg-orange-950', text: 'text-white' },
-          ].map((color) => (
-            <div class={`aspect-square rounded-lg ${color.bg} flex flex-col items-center justify-center p-1`}>
-              <span class={`text-sm font-medium ${color.text}`}>{color.shade}</span>
+          <!-- 2c. Body -->
+          <div class="mb-10">
+            <h3 class="display-6 text-stone-500 uppercase tracking-wider mb-5">Body</h3>
+            <div class="space-y-3">
+              {[
+                { cls: 'body-p',      size: '1.125rem / 18px', weight: '400', color: 'text-secondary',  sample: 'Default paragraph style. Used for all general content throughout the site. Line height 1.6 for comfortable reading.' },
+                { cls: 'body-medium', size: '1rem / 16px',     weight: '400', color: 'text-secondary',  sample: 'Secondary content, card descriptions, supporting text, and form labels.'                                           },
+                { cls: 'body-small',  size: '0.875rem / 14px', weight: '400', color: 'text-tertiary',   sample: 'Captions, metadata, timestamps, labels, fine print, and table cells.'                                             },
+                { cls: 'text-button', size: '1.125rem / 18px', weight: '700', color: '',                sample: 'Button label text — DM Sans bold, tight line-height.'                                                             },
+              ].map(b => (
+                <div class="p-4 border border-border rounded-xl bg-background">
+                  <div class="flex items-start justify-between gap-4 mb-2 flex-wrap">
+                    <code class="text-xs bg-orange-100 dark:bg-orange-950/40 text-orange-700 dark:text-orange-400 px-2 py-1 rounded">.{b.cls}</code>
+                    <span class="body-small text-stone-400">DM Sans · {b.size} · w{b.weight}</span>
+                  </div>
+                  <p class={b.cls}>{b.sample}</p>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-        <p class="body-small mt-2 text-stone-500">Primary brand color: <code class="bg-secondary px-1 rounded">orange-600</code> (#EB5E28)</p>
-      </div>
+          </div>
 
-      <!-- Stone -->
-      <div class="mb-8">
-        <h3 class="display-h6 mb-4">Stone <span class="text-stone-500 font-normal">(Neutral)</span></h3>
-        <div class="grid grid-cols-5 sm:grid-cols-10 gap-2">
-          {[
-            { shade: '100', bg: 'bg-stone-100', text: 'text-stone-700' },
-            { shade: '200', bg: 'bg-stone-200', text: 'text-stone-700' },
-            { shade: '300', bg: 'bg-stone-300', text: 'text-stone-700' },
-            { shade: '400', bg: 'bg-stone-400', text: 'text-stone-800' },
-            { shade: '500', bg: 'bg-stone-500', text: 'text-white' },
-            { shade: '600', bg: 'bg-stone-600', text: 'text-white' },
-            { shade: '700', bg: 'bg-stone-700', text: 'text-white' },
-            { shade: '800', bg: 'bg-stone-800', text: 'text-white' },
-            { shade: '900', bg: 'bg-stone-900', text: 'text-white' },
-            { shade: '950', bg: 'bg-stone-950', text: 'text-white' },
-          ].map((color) => (
-            <div class={`aspect-square rounded-lg ${color.bg} flex flex-col items-center justify-center p-1`}>
-              <span class={`text-sm font-medium ${color.text}`}>{color.shade}</span>
+          <!-- 2d. Font Features -->
+          <div>
+            <h3 class="display-6 text-stone-500 uppercase tracking-wider mb-5">Font Families</h3>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div class="p-5 border border-border rounded-xl bg-background">
+                <code class="text-xs bg-orange-100 dark:bg-orange-950/40 text-orange-700 dark:text-orange-400 px-2 py-1 rounded mb-3 inline-block">font-display</code>
+                <p class="font-display text-3xl leading-tight mb-2">DM Serif Display</p>
+                <p class="body-small">Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm<br/>Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz</p>
+              </div>
+              <div class="p-5 border border-border rounded-xl bg-background">
+                <code class="text-xs bg-orange-100 dark:bg-orange-950/40 text-orange-700 dark:text-orange-400 px-2 py-1 rounded mb-3 inline-block">font-sans</code>
+                <p class="font-sans text-3xl font-medium leading-tight mb-2">DM Sans</p>
+                <p class="body-small">Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm<br/>Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz<br/>0 1 2 3 4 5 6 7 8 9</p>
+              </div>
             </div>
-          ))}
-        </div>
-      </div>
+          </div>
+        </section>
 
-      <!-- Semantic -->
-      <div>
-        <h3 class="display-h6 mb-4">Semantic</h3>
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-          <div class="p-4 rounded-lg bg-success">
-            <span class="text-white font-medium">Success</span>
-            <p class="text-white/80 text-sm mt-1">#059669</p>
-          </div>
-          <div class="p-4 rounded-lg bg-warning">
-            <span class="text-white font-medium">Warning</span>
-            <p class="text-white/80 text-sm mt-1">#ca8a04</p>
-          </div>
-          <div class="p-4 rounded-lg bg-error">
-            <span class="text-white font-medium">Error</span>
-            <p class="text-white/80 text-sm mt-1">#dc2626</p>
-          </div>
-          <div class="p-4 rounded-lg bg-info">
-            <span class="text-white font-medium">Info</span>
-            <p class="text-white/80 text-sm mt-1">#0284c7</p>
-          </div>
-        </div>
-      </div>
-    </section>
+        <!-- ══════════════════════════════════════════════
+             3. SPACING
+        ══════════════════════════════════════════════ -->
+        <section id="spacing">
+          <h2 class="display-3 mb-2">Spacing</h2>
+          <p class="body-p mb-10">
+            Base unit is <strong>4px</strong>. All spacing uses Tailwind's default scale. Container utility and section padding are standardized below.
+          </p>
 
-    <!-- Buttons Section -->
-    <section id="buttons" class="mb-20">
-      <h2 class="display-h4 mb-2">Buttons</h2>
-      <p class="body-p mb-8">Button variants for different contexts and hierarchies.</p>
-
-      <div class="space-y-6">
-        <!-- Primary -->
-        <div class="p-6 border border-border rounded-lg">
-          <h3 class="display-h6 mb-4">Primary</h3>
-          <div class="flex flex-wrap items-center gap-4">
-            <button class="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90 transition-opacity">
-              Primary Button
-            </button>
-            <button class="px-4 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-medium hover:opacity-90 transition-opacity">
-              Small
-            </button>
-            <button class="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium opacity-50 cursor-not-allowed">
-              Disabled
-            </button>
+          <!-- Visual scale -->
+          <div class="mb-10">
+            <h3 class="display-6 text-stone-500 uppercase tracking-wider mb-5">Scale</h3>
+            <div class="p-6 border border-border rounded-xl bg-background overflow-x-auto">
+              <div class="space-y-3 min-w-[400px]">
+                {spacingScale.map(s => (
+                  <div class="flex items-center gap-4">
+                    <span class="body-small font-mono w-8 text-right shrink-0 text-stone-400">{s.name}</span>
+                    <span class="body-small font-mono w-14 shrink-0 text-stone-500">{s.px}</span>
+                    <div class={`h-5 bg-orange-400 dark:bg-orange-500 rounded shrink-0 ${s.size}`}></div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-          <p class="body-small mt-4 text-stone-500">Use for main CTAs. Background: <code class="bg-secondary px-1 rounded">primary</code></p>
-        </div>
 
-        <!-- Accent -->
-        <div class="p-6 border border-border rounded-lg">
-          <h3 class="display-h6 mb-4">Accent</h3>
-          <div class="flex flex-wrap items-center gap-4">
-            <button class="px-6 py-3 bg-orange-600 text-white rounded-lg font-medium hover:bg-orange-700 transition-colors">
-              Accent Button
-            </button>
-            <button class="px-4 py-2 bg-orange-600 text-white rounded-lg text-sm font-medium hover:bg-orange-700 transition-colors">
-              Small
-            </button>
+          <!-- Page layout helpers -->
+          <div class="mb-10">
+            <h3 class="display-6 text-stone-500 uppercase tracking-wider mb-5">Layout Utilities</h3>
+            <div class="space-y-3">
+              <div class="p-5 border border-border rounded-xl bg-background">
+                <div class="flex items-start justify-between gap-4 flex-wrap mb-2">
+                  <code class="text-sm bg-orange-100 dark:bg-orange-950/40 text-orange-700 dark:text-orange-400 px-2 py-1 rounded">.container-page</code>
+                  <span class="body-small text-stone-400">max-w-7xl (1280px) · mx-auto · px-4 sm:px-6 lg:px-8</span>
+                </div>
+                <p class="body-medium">Full-bleed wrapper that constrains content to 1280px with responsive horizontal padding.</p>
+              </div>
+              <div class="p-5 border border-border rounded-xl bg-background">
+                <div class="flex items-start justify-between gap-4 flex-wrap mb-2">
+                  <code class="text-sm bg-orange-100 dark:bg-orange-950/40 text-orange-700 dark:text-orange-400 px-2 py-1 rounded">.focus-ring</code>
+                  <span class="body-small text-stone-400">focus:outline-none · focus:ring-2 · ring-offset-2 · ring-orange-600</span>
+                </div>
+                <p class="body-medium">Accessible focus ring using the brand orange focus color.</p>
+              </div>
+            </div>
           </div>
-          <p class="body-small mt-4 text-stone-500">High-emphasis action. Background: <code class="bg-secondary px-1 rounded">orange-600</code></p>
-        </div>
 
-        <!-- Secondary -->
-        <div class="p-6 border border-border rounded-lg">
-          <h3 class="display-h6 mb-4">Secondary</h3>
-          <div class="flex flex-wrap items-center gap-4">
-            <button class="px-6 py-3 border border-border bg-background text-foreground rounded-lg font-medium hover:bg-secondary transition-colors">
-              Secondary Button
-            </button>
-            <button class="px-4 py-2 border border-border bg-background text-foreground rounded-lg text-sm font-medium hover:bg-secondary transition-colors">
-              Small
-            </button>
+          <!-- Section padding conventions -->
+          <div>
+            <h3 class="display-6 text-stone-500 uppercase tracking-wider mb-5">Section Padding Convention</h3>
+            <div class="overflow-x-auto">
+              <table class="w-full border-collapse body-medium">
+                <thead>
+                  <tr class="border-b border-border">
+                    <th class="text-left py-3 px-4 font-semibold">Context</th>
+                    <th class="text-left py-3 px-4 font-semibold">Mobile</th>
+                    <th class="text-left py-3 px-4 font-semibold">Desktop</th>
+                    <th class="text-left py-3 px-4 font-semibold">Class</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { ctx: 'Full section',    mob: '64px', desk: '128px', cls: 'py-16 lg:py-32' },
+                    { ctx: 'Compact section', mob: '40px', desk: '80px',  cls: 'py-10 lg:py-20' },
+                    { ctx: 'Card inner',      mob: '24px', desk: '24px',  cls: 'p-6'            },
+                    { ctx: 'Card compact',    mob: '16px', desk: '16px',  cls: 'p-4'            },
+                    { ctx: 'Input / button',  mob: '12px 16px', desk: '12px 24px', cls: 'py-3 px-4 / py-3 px-6' },
+                  ].map(r => (
+                    <tr class="border-b border-border last:border-0">
+                      <td class="py-3 px-4">{r.ctx}</td>
+                      <td class="py-3 px-4 text-stone-500">{r.mob}</td>
+                      <td class="py-3 px-4 text-stone-500">{r.desk}</td>
+                      <td class="py-3 px-4"><code class="bg-secondary px-2 py-0.5 rounded text-sm">{r.cls}</code></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
-          <p class="body-small mt-4 text-stone-500">Secondary actions. Border: <code class="bg-secondary px-1 rounded">border</code></p>
-        </div>
+        </section>
 
-        <!-- Ghost / Text -->
-        <div class="p-6 border border-border rounded-lg">
-          <h3 class="display-h6 mb-4">Ghost / Text Link</h3>
-          <div class="flex flex-wrap items-center gap-4">
-            <button class="px-6 py-3 text-foreground hover:bg-secondary rounded-lg font-medium transition-colors">
-              Ghost Button
-            </button>
-            <a href="#" class="text-foreground underline underline-offset-4 hover:text-orange-600 transition-colors">
-              Text Link
+        <!-- ══════════════════════════════════════════════
+             4. BORDERS
+        ══════════════════════════════════════════════ -->
+        <section id="borders">
+          <h2 class="display-3 mb-2">Borders</h2>
+          <p class="body-p mb-10">Border widths, radii, and the token-based color system.</p>
+
+          <!-- Border Widths -->
+          <div class="mb-10">
+            <h3 class="display-6 text-stone-500 uppercase tracking-wider mb-5">Widths</h3>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              {[
+                { cls: 'border',    val: '1px',  usage: 'Default — cards, inputs'       },
+                { cls: 'border-2',  val: '2px',  usage: 'Emphasis — focus states'       },
+                { cls: 'border-4',  val: '4px',  usage: 'Strong accent — decorative'    },
+                { cls: 'border-8',  val: '8px',  usage: 'Feature — chunky highlights'   },
+              ].map(b => (
+                <div class="p-4 border border-border rounded-xl bg-background">
+                  <div class={`h-12 rounded-lg mb-3 ${b.cls} border-stone-400 dark:border-stone-500`}></div>
+                  <code class="text-sm bg-orange-100 dark:bg-orange-950/40 text-orange-700 dark:text-orange-400 px-2 py-0.5 rounded block mb-1">.{b.cls}</code>
+                  <p class="body-small">{b.val} · {b.usage}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Border Radii -->
+          <div class="mb-10">
+            <h3 class="display-6 text-stone-500 uppercase tracking-wider mb-5">Border Radius</h3>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              {radii.map(r => (
+                <div class="p-4 border border-border rounded-xl bg-background">
+                  <div class={`h-12 border-2 border-orange-400 dark:border-orange-500 mb-3 ${r.class}`}></div>
+                  <code class="text-sm bg-orange-100 dark:bg-orange-950/40 text-orange-700 dark:text-orange-400 px-2 py-0.5 rounded block mb-1">.{r.name}</code>
+                  <p class="body-small">{r.value}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Border Colors -->
+          <div>
+            <h3 class="display-6 text-stone-500 uppercase tracking-wider mb-5">Border Colors</h3>
+            <div class="space-y-3">
+              {[
+                { cls: 'border-border',          desc: 'Default — use everywhere',          note: 'Resolves via --color-border token (light: #d6d3d1 / dark: #78716c)'   },
+                { cls: 'border-stone-400',        desc: 'Fixed mid-gray — light bg contexts',note: '#d6d3d1 — matches --color-border in light mode'                       },
+                { cls: 'border-stone-600',        desc: 'Fixed mid-gray — dark contexts',    note: '#78716c — matches --color-border in dark mode'                        },
+                { cls: 'border-orange-500',       desc: 'Brand accent on hover/focus',       note: '#f17c52 — hover states on cards'                                      },
+                { cls: 'border-orange-600',       desc: 'Focus ring color',                  note: '#EB5E28 — matches --color-border-focus'                               },
+              ].map(b => (
+                <div class="flex items-center gap-4 p-4 border border-border rounded-xl bg-background flex-wrap">
+                  <div class={`w-16 h-10 rounded-lg border-2 shrink-0 bg-background ${b.cls}`}></div>
+                  <div>
+                    <code class="text-sm bg-orange-100 dark:bg-orange-950/40 text-orange-700 dark:text-orange-400 px-2 py-0.5 rounded">.{b.cls}</code>
+                    <p class="body-small mt-1">{b.desc} · <span class="text-stone-400">{b.note}</span></p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════
+             5. SHADOWS
+        ══════════════════════════════════════════════ -->
+        <section id="shadows">
+          <h2 class="display-3 mb-2">Shadows</h2>
+          <p class="body-p mb-10">Tailwind's default shadow scale. Used on cards and elevated surfaces.</p>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { cls: 'shadow-sm',  label: 'shadow-sm',  usage: 'Subtle lift'          },
+              { cls: 'shadow',     label: 'shadow',     usage: 'Default card shadow'  },
+              { cls: 'shadow-md',  label: 'shadow-md',  usage: 'Hover state cards'    },
+              { cls: 'shadow-lg',  label: 'shadow-lg',  usage: 'Modals, dropdowns'    },
+              { cls: 'shadow-xl',  label: 'shadow-xl',  usage: 'Large overlays'       },
+              { cls: 'shadow-2xl', label: 'shadow-2xl', usage: 'Hero elements'        },
+            ].map(s => (
+              <div class="p-6 border border-border rounded-xl bg-background">
+                <div class={`h-16 rounded-xl bg-background mb-4 ${s.cls}`}></div>
+                <code class="text-sm bg-orange-100 dark:bg-orange-950/40 text-orange-700 dark:text-orange-400 px-2 py-0.5 rounded block mb-1">.{s.label}</code>
+                <p class="body-small">{s.usage}</p>
+              </div>
+            ))}
+          </div>
+
+          <!-- Breakpoints -->
+          <div class="mt-10">
+            <h3 class="display-6 text-stone-500 uppercase tracking-wider mb-5">Breakpoints</h3>
+            <div class="overflow-x-auto mb-6">
+              <table class="w-full border-collapse body-medium">
+                <thead>
+                  <tr class="border-b border-border">
+                    <th class="text-left py-3 px-4 font-semibold">Prefix</th>
+                    <th class="text-left py-3 px-4 font-semibold">Min Width</th>
+                    <th class="text-left py-3 px-4 font-semibold">Device</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { p: 'sm:', w: '640px',  d: 'Large phones'  },
+                    { p: 'md:', w: '768px',  d: 'Tablets'       },
+                    { p: 'lg:', w: '1024px', d: 'Laptops'       },
+                    { p: 'xl:', w: '1280px', d: 'Desktops'      },
+                    { p: '2xl:', w: '1536px', d: 'Large screens' },
+                  ].map(r => (
+                    <tr class="border-b border-border last:border-0">
+                      <td class="py-3 px-4"><code class="bg-secondary px-2 py-0.5 rounded">{r.p}</code></td>
+                      <td class="py-3 px-4 text-stone-500">{r.w}</td>
+                      <td class="py-3 px-4 text-stone-500">{r.d}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <!-- Live indicator -->
+            <div class="p-4 border border-border rounded-xl bg-orange-50 dark:bg-orange-950/20">
+              <p class="body-medium font-semibold mb-1">You are currently on:</p>
+              <p class="body-p font-bold text-orange-600 dark:text-orange-400">
+                <span class="sm:hidden">Mobile (&lt; 640px)</span>
+                <span class="hidden sm:inline md:hidden">SM (&ge; 640px)</span>
+                <span class="hidden md:inline lg:hidden">MD (&ge; 768px)</span>
+                <span class="hidden lg:inline xl:hidden">LG (&ge; 1024px)</span>
+                <span class="hidden xl:inline 2xl:hidden">XL (&ge; 1280px)</span>
+                <span class="hidden 2xl:inline">2XL (&ge; 1536px)</span>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════
+             6. ICONS
+        ══════════════════════════════════════════════ -->
+        <section id="icons">
+          <h2 class="display-3 mb-2">Icons</h2>
+          <p class="body-p mb-4">
+            Google <strong>Material Symbols Outlined</strong> — self-hosted via npm, no CDN. Used via the
+            <code class="bg-secondary px-1.5 py-0.5 rounded text-sm">&lt;Icon /&gt;</code> React component.
+          </p>
+          <div class="p-4 border border-border rounded-xl bg-secondary mb-10">
+            <code class="text-sm text-foreground block">&lt;Icon name="home" size="sm" /&gt;  <span class="text-stone-400">-- 16px</span></code>
+            <code class="text-sm text-foreground block mt-1">&lt;Icon name="home" size="md" /&gt;  <span class="text-stone-400">-- 20px (default)</span></code>
+            <code class="text-sm text-foreground block mt-1">&lt;Icon name="home" size="lg" /&gt;  <span class="text-stone-400">-- 24px</span></code>
+            <code class="text-sm text-foreground block mt-1">&lt;Icon name="home" size="xl" /&gt;  <span class="text-stone-400">-- 32px</span></code>
+          </div>
+
+          <!-- Icon sizes -->
+          <div class="mb-10">
+            <h3 class="display-6 text-stone-500 uppercase tracking-wider mb-5">Sizes</h3>
+            <div class="flex flex-wrap items-end gap-6 p-6 border border-border rounded-xl bg-background">
+              {[
+                { cls: 'icon-sm', size: 'sm', px: '18px' },
+                { cls: 'icon-md', size: 'md', px: '24px' },
+                { cls: 'icon-lg', size: 'lg', px: '32px' },
+                { cls: 'icon-xl', size: 'xl', px: '48px' },
+              ].map(s => (
+                <div class="flex flex-col items-center gap-2">
+                  <span class={`material-icons-outlined ${s.cls}`}>settings</span>
+                  <span class="body-small text-stone-500">{s.size}</span>
+                  <span class="body-small text-stone-400">{s.px}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Sample Icons -->
+          <div>
+            <h3 class="display-6 text-stone-500 uppercase tracking-wider mb-5">Sample Icons</h3>
+            <div class="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-8 gap-3">
+              {sampleIcons.map(icon => (
+                <div class="flex flex-col items-center gap-2 p-3 border border-border rounded-xl bg-background hover:border-orange-400 hover:bg-orange-50 dark:hover:bg-orange-950/20 transition-colors group">
+                  <span class="material-icons-outlined icon-md group-hover:text-orange-600 transition-colors">{icon}</span>
+                  <span class="body-small text-stone-500 text-center leading-tight break-all">{icon}</span>
+                </div>
+              ))}
+            </div>
+            <p class="body-small text-stone-400 mt-4">Browse all icons at <a href="https://fonts.google.com/icons" target="_blank" rel="noopener" class="text-orange-600 hover:underline">fonts.google.com/icons</a> — use the Outlined style.</p>
+          </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════
+             7. COMPONENTS
+        ══════════════════════════════════════════════ -->
+        <section id="components">
+          <h2 class="display-3 mb-2">Components</h2>
+          <p class="body-p mb-10">Recurring UI patterns used across the site. All built with Tailwind utility classes — no component library.</p>
+
+          <!-- 7a. Buttons -->
+          <div class="mb-12">
+            <h3 class="display-5 mb-6">Buttons</h3>
+
+            <!-- Primary -->
+            <div class="mb-4 p-6 border border-border rounded-xl bg-background">
+              <p class="body-small text-stone-500 font-semibold uppercase tracking-wider mb-4">Primary (Dark)</p>
+              <div class="flex flex-wrap items-center gap-3 mb-3">
+                <button class="px-6 py-3 bg-[#1C1917] dark:bg-white text-white dark:text-stone-900 font-semibold rounded-lg hover:bg-stone-800 dark:hover:bg-stone-100 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-600 focus-visible:ring-offset-2">
+                  Primary Button
+                </button>
+                <button class="px-4 py-2 bg-[#1C1917] dark:bg-white text-white dark:text-stone-900 text-sm font-semibold rounded-lg hover:bg-stone-800 dark:hover:bg-stone-100 transition-colors">
+                  Small
+                </button>
+                <button class="px-5 py-2.5 bg-[#1C1917] dark:bg-white text-white dark:text-stone-900 font-semibold rounded-full hover:bg-stone-800 dark:hover:bg-stone-100 transition-colors">
+                  Pill
+                </button>
+                <button class="px-6 py-3 bg-[#1C1917] dark:bg-white text-white dark:text-stone-900 font-semibold rounded-lg opacity-40 cursor-not-allowed" disabled>
+                  Disabled
+                </button>
+              </div>
+              <code class="body-small text-stone-400 block">bg-[#1C1917] dark:bg-white · text-white dark:text-stone-900 · rounded-lg</code>
+            </div>
+
+            <!-- Accent -->
+            <div class="mb-4 p-6 border border-border rounded-xl bg-background">
+              <p class="body-small text-stone-500 font-semibold uppercase tracking-wider mb-4">Accent (Brand Orange)</p>
+              <div class="flex flex-wrap items-center gap-3 mb-3">
+                <button class="px-6 py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-600 focus-visible:ring-offset-2">
+                  Accent Button
+                </button>
+                <button class="px-4 py-2 bg-orange-600 text-white text-sm font-semibold rounded-lg hover:bg-orange-700 transition-colors">
+                  Small
+                </button>
+                <button class="px-5 py-2.5 bg-orange-600 text-white font-semibold rounded-full hover:bg-orange-700 transition-colors">
+                  Pill
+                </button>
+              </div>
+              <code class="body-small text-stone-400 block">bg-orange-600 · text-white · hover:bg-orange-700</code>
+            </div>
+
+            <!-- Secondary (Outlined) -->
+            <div class="mb-4 p-6 border border-border rounded-xl bg-background">
+              <p class="body-small text-stone-500 font-semibold uppercase tracking-wider mb-4">Secondary (Outlined)</p>
+              <div class="flex flex-wrap items-center gap-3 mb-3">
+                <button class="px-6 py-3 border border-border bg-background text-foreground font-semibold rounded-lg hover:bg-secondary hover:border-orange-400 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-600 focus-visible:ring-offset-2">
+                  Secondary Button
+                </button>
+                <button class="px-4 py-2 border border-border bg-background text-foreground text-sm font-semibold rounded-lg hover:bg-secondary hover:border-orange-400 transition-colors">
+                  Small
+                </button>
+                <button class="px-5 py-2.5 border border-border bg-background text-foreground font-semibold rounded-full hover:bg-secondary hover:border-orange-400 transition-colors">
+                  Pill
+                </button>
+              </div>
+              <code class="body-small text-stone-400 block">border border-border · bg-background · hover:bg-secondary hover:border-orange-400</code>
+            </div>
+
+            <!-- Ghost -->
+            <div class="p-6 border border-border rounded-xl bg-background">
+              <p class="body-small text-stone-500 font-semibold uppercase tracking-wider mb-4">Ghost / Text</p>
+              <div class="flex flex-wrap items-center gap-4 mb-3">
+                <button class="px-6 py-3 text-foreground font-semibold rounded-lg hover:bg-secondary transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-600">
+                  Ghost Button
+                </button>
+                <a href="#" class="inline-flex items-center gap-1.5 font-semibold text-foreground hover:text-orange-600 transition-colors">
+                  Text Link
+                  <span class="material-icons-outlined icon-sm">arrow_forward</span>
+                </a>
+                <a href="#" class="inline-flex items-center gap-1.5 font-semibold text-orange-600 hover:text-orange-700 transition-colors">
+                  Colored Link
+                  <span class="material-icons-outlined icon-sm">arrow_forward</span>
+                </a>
+              </div>
+              <code class="body-small text-stone-400 block">hover:bg-secondary · no border</code>
+            </div>
+          </div>
+
+          <!-- 7b. Form Elements -->
+          <div class="mb-12">
+            <h3 class="display-5 mb-6">Form Elements</h3>
+            <div class="space-y-4">
+
+              <!-- Input -->
+              <div class="p-6 border border-border rounded-xl bg-background">
+                <p class="body-small text-stone-500 font-semibold uppercase tracking-wider mb-4">Text Input</p>
+                <div class="grid sm:grid-cols-2 gap-4 mb-4">
+                  <div>
+                    <label class="body-small font-semibold text-foreground block mb-1.5">Default</label>
+                    <input type="text" placeholder="Enter value" class="w-full px-4 py-3 bg-white dark:bg-stone-800 border border-border rounded-lg text-foreground placeholder-stone-400 dark:placeholder-stone-500 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-colors" />
+                  </div>
+                  <div>
+                    <label class="body-small font-semibold text-foreground block mb-1.5">With Icon</label>
+                    <div class="relative">
+                      <span class="material-icons-outlined icon-sm absolute left-3 top-1/2 -translate-y-1/2 text-stone-400">search</span>
+                      <input type="text" placeholder="Search…" class="w-full pl-10 pr-4 py-3 bg-white dark:bg-stone-800 border border-border rounded-lg text-foreground placeholder-stone-400 dark:placeholder-stone-500 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-colors" />
+                    </div>
+                  </div>
+                  <div>
+                    <label class="body-small font-semibold text-foreground block mb-1.5">Error State</label>
+                    <input type="text" value="invalid@" class="w-full px-4 py-3 bg-white dark:bg-stone-800 border border-red-500 rounded-lg text-foreground focus:outline-none focus:ring-1 focus:ring-red-500 transition-colors" />
+                    <p class="body-small text-red-500 mt-1">Enter a valid email address.</p>
+                  </div>
+                  <div>
+                    <label class="body-small font-semibold text-stone-400 block mb-1.5">Disabled</label>
+                    <input type="text" value="Read-only value" disabled class="w-full px-4 py-3 bg-secondary border border-border rounded-lg text-stone-400 cursor-not-allowed" />
+                  </div>
+                </div>
+                <div>
+                  <label class="body-small font-semibold text-foreground block mb-1.5">Textarea</label>
+                  <textarea rows="3" placeholder="Write something…" class="w-full px-4 py-3 bg-white dark:bg-stone-800 border border-border rounded-lg text-foreground placeholder-stone-400 dark:placeholder-stone-500 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-colors resize-none"></textarea>
+                </div>
+              </div>
+
+              <!-- Select -->
+              <div class="p-6 border border-border rounded-xl bg-background">
+                <p class="body-small text-stone-500 font-semibold uppercase tracking-wider mb-4">Select</p>
+                <div class="relative max-w-xs">
+                  <select class="w-full appearance-none px-4 py-3 pr-10 bg-white dark:bg-stone-800 border border-border rounded-lg text-foreground focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-colors">
+                    <option>Frontend Architecture</option>
+                    <option>Design Systems</option>
+                    <option>UX Direction</option>
+                  </select>
+                  <span class="material-icons-outlined icon-sm absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 pointer-events-none">expand_more</span>
+                </div>
+              </div>
+
+              <!-- Checkbox & Radio -->
+              <div class="p-6 border border-border rounded-xl bg-background">
+                <p class="body-small text-stone-500 font-semibold uppercase tracking-wider mb-4">Checkbox & Radio</p>
+                <div class="grid sm:grid-cols-2 gap-6">
+                  <div class="space-y-3">
+                    <p class="body-small text-stone-500 font-semibold mb-2">Checkbox</p>
+                    {['Accessibility (WCAG AA)', 'Design Systems', 'Frontend Architecture'].map((label, i) => (
+                      <label class="flex items-center gap-3 cursor-pointer group">
+                        <input type="checkbox" checked={i === 0} class="w-4 h-4 rounded border-border text-orange-600 focus:ring-orange-500 focus:ring-offset-0 cursor-pointer accent-orange-600" />
+                        <span class="body-medium group-hover:text-foreground">{label}</span>
+                      </label>
+                    ))}
+                  </div>
+                  <div class="space-y-3">
+                    <p class="body-small text-stone-500 font-semibold mb-2">Radio</p>
+                    {['Principal Engineer', 'UI/UX Director', 'Design Technologist'].map((label, i) => (
+                      <label class="flex items-center gap-3 cursor-pointer group">
+                        <input type="radio" name="role" checked={i === 0} class="w-4 h-4 border-border text-orange-600 focus:ring-orange-500 focus:ring-offset-0 cursor-pointer accent-orange-600" />
+                        <span class="body-medium group-hover:text-foreground">{label}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7c. Badges & Tags -->
+          <div class="mb-12">
+            <h3 class="display-5 mb-6">Badges & Tags</h3>
+            <div class="p-6 border border-border rounded-xl bg-background">
+              <div class="flex flex-wrap gap-3 mb-6">
+                <span class="px-3 py-1 text-sm font-semibold rounded-full bg-orange-100 dark:bg-orange-950/40 text-orange-700 dark:text-orange-400">Brand</span>
+                <span class="px-3 py-1 text-sm font-semibold rounded-full bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300">Neutral</span>
+                <span class="px-3 py-1 text-sm font-semibold rounded-full bg-green-100 dark:bg-green-950/40 text-green-700 dark:text-green-400">Success</span>
+                <span class="px-3 py-1 text-sm font-semibold rounded-full bg-yellow-100 dark:bg-yellow-950/40 text-yellow-700 dark:text-yellow-400">Warning</span>
+                <span class="px-3 py-1 text-sm font-semibold rounded-full bg-red-100 dark:bg-red-950/40 text-red-700 dark:text-red-400">Error</span>
+                <span class="px-3 py-1 text-sm font-semibold rounded-full bg-blue-100 dark:bg-blue-950/40 text-blue-700 dark:text-blue-400">Info</span>
+              </div>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 text-sm font-medium rounded-lg border border-border bg-background text-foreground">
+                  <span class="material-icons-outlined icon-sm">code</span>
+                  React
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 text-sm font-medium rounded-lg border border-border bg-background text-foreground">
+                  <span class="material-icons-outlined icon-sm">design_services</span>
+                  Figma
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 text-sm font-medium rounded-lg border border-border bg-background text-foreground">
+                  <span class="material-icons-outlined icon-sm">palette</span>
+                  Tailwind
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 text-sm font-medium rounded-lg border border-border bg-background text-foreground">
+                  TypeScript
+                  <button class="ml-0.5 text-stone-400 hover:text-stone-600 transition-colors">
+                    <span class="material-icons-outlined icon-sm">close</span>
+                  </button>
+                </span>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-stone-900 dark:bg-white text-white dark:text-stone-900 text-sm font-semibold">
+                  <span class="w-2 h-2 rounded-full bg-green-400"></span>
+                  Available
+                </span>
+                <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-stone-900 dark:bg-white text-white dark:text-stone-900 text-sm font-semibold">
+                  <span class="w-2 h-2 rounded-full bg-orange-400"></span>
+                  Busy
+                </span>
+                <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-stone-900 dark:bg-white text-white dark:text-stone-900 text-sm font-semibold">
+                  <span class="w-2 h-2 rounded-full bg-stone-400"></span>
+                  Away
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7d. Cards -->
+          <div class="mb-12">
+            <h3 class="display-5 mb-6">Cards</h3>
+            <div class="grid sm:grid-cols-2 gap-4">
+
+              <!-- Standard Card -->
+              <div class="p-6 rounded-xl border border-border bg-background hover:border-orange-400 hover:shadow-lg transition-all duration-300 cursor-pointer group">
+                <div class="flex items-center gap-3 mb-4">
+                  <div class="w-10 h-10 rounded-lg bg-orange-100 dark:bg-orange-950/40 flex items-center justify-center text-orange-600">
+                    <span class="material-icons-outlined icon-sm">design_services</span>
+                  </div>
+                  <span class="px-2 py-0.5 text-xs font-semibold rounded-full bg-orange-100 dark:bg-orange-950/40 text-orange-700 dark:text-orange-400">Featured</span>
+                </div>
+                <h4 class="display-5 mb-2 group-hover:text-orange-600 transition-colors">Design Systems</h4>
+                <p class="body-medium">Architecting accessibility-first component libraries for Fortune 500 organizations.</p>
+                <div class="mt-4 flex items-center gap-1.5 text-sm font-semibold text-orange-600">
+                  Read more
+                  <span class="material-icons-outlined icon-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                </div>
+              </div>
+
+              <!-- Compact List Card -->
+              <div class="p-4 rounded-xl border border-border bg-background hover:border-orange-400 hover:shadow-md transition-all duration-300 cursor-pointer group flex gap-4">
+                <div class="w-16 h-16 rounded-lg bg-stone-100 dark:bg-stone-800 flex-shrink-0 flex items-center justify-center">
+                  <span class="material-icons-outlined icon-lg text-stone-400">image</span>
+                </div>
+                <div class="min-w-0">
+                  <span class="body-small text-stone-400 block mb-1">Feb 2026 · 5 min read</span>
+                  <h4 class="display-6 mb-1 truncate group-hover:text-orange-600 transition-colors">Building Accessible Design Systems</h4>
+                  <p class="body-small line-clamp-2">How we reduced regulatory risk across 12 enterprise products…</p>
+                </div>
+              </div>
+
+              <!-- Stat Card -->
+              <div class="p-6 rounded-xl border border-border bg-background">
+                <p class="body-small text-stone-500 font-semibold uppercase tracking-wider mb-3">Stat Card</p>
+                <div class="flex items-end justify-between">
+                  <div>
+                    <p class="display-2 text-orange-600">12+</p>
+                    <p class="body-medium text-stone-500">Years experience</p>
+                  </div>
+                  <span class="material-icons-outlined icon-xl text-stone-200 dark:text-stone-700">trending_up</span>
+                </div>
+              </div>
+
+              <!-- Profile Card -->
+              <div class="p-6 rounded-xl border border-border bg-background">
+                <p class="body-small text-stone-500 font-semibold uppercase tracking-wider mb-3">Profile Card</p>
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 rounded-full bg-orange-100 dark:bg-orange-950/40 flex items-center justify-center text-orange-600 font-bold text-lg shrink-0">SU</div>
+                  <div>
+                    <p class="display-6">Sandeep Upadhyay</p>
+                    <p class="body-small text-stone-500">Principal Frontend Engineer</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7e. Alerts / Callouts -->
+          <div class="mb-12">
+            <h3 class="display-5 mb-6">Alerts & Callouts</h3>
+            <div class="space-y-3">
+              <div class="flex gap-4 p-4 rounded-xl border bg-green-50 dark:bg-green-950/20 border-green-200 dark:border-green-900">
+                <span class="material-icons-outlined icon-sm text-green-600 dark:text-green-400 shrink-0 mt-0.5">check_circle</span>
+                <div>
+                  <p class="body-medium font-semibold text-green-800 dark:text-green-300">Changes saved</p>
+                  <p class="body-small text-green-700 dark:text-green-400">Your profile has been updated successfully.</p>
+                </div>
+              </div>
+              <div class="flex gap-4 p-4 rounded-xl border bg-yellow-50 dark:bg-yellow-950/20 border-yellow-200 dark:border-yellow-900">
+                <span class="material-icons-outlined icon-sm text-yellow-600 dark:text-yellow-400 shrink-0 mt-0.5">warning</span>
+                <div>
+                  <p class="body-medium font-semibold text-yellow-800 dark:text-yellow-300">Heads up</p>
+                  <p class="body-small text-yellow-700 dark:text-yellow-400">This action cannot be undone. Review carefully.</p>
+                </div>
+              </div>
+              <div class="flex gap-4 p-4 rounded-xl border bg-red-50 dark:bg-red-950/20 border-red-200 dark:border-red-900">
+                <span class="material-icons-outlined icon-sm text-red-600 dark:text-red-400 shrink-0 mt-0.5">error</span>
+                <div>
+                  <p class="body-medium font-semibold text-red-800 dark:text-red-300">Request failed</p>
+                  <p class="body-small text-red-700 dark:text-red-400">Something went wrong. Please try again later.</p>
+                </div>
+              </div>
+              <div class="flex gap-4 p-4 rounded-xl border bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-900">
+                <span class="material-icons-outlined icon-sm text-blue-600 dark:text-blue-400 shrink-0 mt-0.5">info</span>
+                <div>
+                  <p class="body-medium font-semibold text-blue-800 dark:text-blue-300">Did you know?</p>
+                  <p class="body-small text-blue-700 dark:text-blue-400">You can toggle between light and dark mode above.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7f. Navigation Elements -->
+          <div>
+            <h3 class="display-5 mb-6">Navigation Elements</h3>
+            <div class="space-y-4">
+
+              <!-- Breadcrumb -->
+              <div class="p-5 border border-border rounded-xl bg-background">
+                <p class="body-small text-stone-500 font-semibold uppercase tracking-wider mb-4">Breadcrumb</p>
+                <nav aria-label="Breadcrumb">
+                  <ol class="flex items-center gap-2 body-medium flex-wrap">
+                    <li><a href="#" class="text-stone-500 hover:text-orange-600 transition-colors">Home</a></li>
+                    <li><span class="material-icons-outlined icon-sm text-stone-400">chevron_right</span></li>
+                    <li><a href="#" class="text-stone-500 hover:text-orange-600 transition-colors">Articles</a></li>
+                    <li><span class="material-icons-outlined icon-sm text-stone-400">chevron_right</span></li>
+                    <li><span class="text-foreground font-semibold">Design Systems</span></li>
+                  </ol>
+                </nav>
+              </div>
+
+              <!-- Tabs -->
+              <div class="p-5 border border-border rounded-xl bg-background">
+                <p class="body-small text-stone-500 font-semibold uppercase tracking-wider mb-4">Tabs</p>
+                <div class="flex gap-1 p-1 bg-secondary rounded-lg w-fit mb-4" role="tablist">
+                  {['Overview', 'Details', 'Code'].map((tab, i) => (
+                    <button
+                      role="tab"
+                      class={`px-4 py-2 rounded-md body-medium font-medium transition-colors ${i === 0 ? 'bg-background text-foreground shadow-sm' : 'text-stone-500 hover:text-foreground'}`}
+                    >
+                      {tab}
+                    </button>
+                  ))}
+                </div>
+                <div class="flex gap-1 border-b border-border">
+                  {['Overview', 'Details', 'Code'].map((tab, i) => (
+                    <button
+                      role="tab"
+                      class={`px-4 py-2 body-medium font-medium transition-colors border-b-2 -mb-px ${i === 0 ? 'border-orange-600 text-orange-600' : 'border-transparent text-stone-500 hover:text-foreground'}`}
+                    >
+                      {tab}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <div class="p-5 border border-border rounded-xl bg-background">
+                <p class="body-small text-stone-500 font-semibold uppercase tracking-wider mb-4">Divider</p>
+                <div class="space-y-4">
+                  <hr class="border-border" />
+                  <div class="flex items-center gap-4">
+                    <hr class="flex-1 border-border" />
+                    <span class="body-small text-stone-400">or</span>
+                    <hr class="flex-1 border-border" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── Page Footer ──────────────────────────────────── -->
+        <footer class="pt-8 border-t border-border">
+          <div class="flex items-center justify-between flex-wrap gap-4">
+            <p class="body-small text-stone-400">
+              Design System — <strong class="text-foreground">sandeepupadhyay.com</strong>
+            </p>
+            <a href="/" class="inline-flex items-center gap-1.5 body-small text-orange-600 hover:text-orange-700 transition-colors font-semibold">
+              <span class="material-icons-outlined icon-sm">arrow_back</span>
+              Back to Home
             </a>
-            <a href="#" class="text-orange-600 hover:text-orange-700 font-medium transition-colors">
-              Colored Link
-            </a>
           </div>
-        </div>
-      </div>
-    </section>
+        </footer>
 
-    <!-- Spacing Section -->
-    <section id="spacing" class="mb-20">
-      <h2 class="display-h4 mb-2">Spacing & Layout</h2>
-      <p class="body-p mb-8">Consistent spacing using Tailwind's default scale.</p>
-
-      <div class="p-6 border border-border rounded-lg">
-        <h3 class="display-h6 mb-4">Container</h3>
-        <p class="body-medium mb-4">Max-width container with responsive padding:</p>
-        <code class="block bg-secondary p-4 rounded-lg text-sm">
-          .container-page = max-w-7xl mx-auto px-4 sm:px-6 lg:px-8
-        </code>
-      </div>
-    </section>
-
-    <!-- Breakpoints Section -->
-    <section id="breakpoints" class="mb-20">
-      <h2 class="display-h4 mb-2">Breakpoints</h2>
-      <p class="body-p mb-8">Mobile-first responsive breakpoints.</p>
-
-      <div class="overflow-x-auto">
-        <table class="w-full border-collapse">
-          <thead>
-            <tr class="border-b border-border">
-              <th class="text-left py-3 px-4 body-medium font-semibold">Prefix</th>
-              <th class="text-left py-3 px-4 body-medium font-semibold">Min Width</th>
-              <th class="text-left py-3 px-4 body-medium font-semibold">Device</th>
-            </tr>
-          </thead>
-          <tbody class="body-medium">
-            <tr class="border-b border-border">
-              <td class="py-3 px-4"><code class="bg-secondary px-2 py-1 rounded">sm:</code></td>
-              <td class="py-3 px-4">640px</td>
-              <td class="py-3 px-4 text-stone-500">Large phones</td>
-            </tr>
-            <tr class="border-b border-border">
-              <td class="py-3 px-4"><code class="bg-secondary px-2 py-1 rounded">md:</code></td>
-              <td class="py-3 px-4">768px</td>
-              <td class="py-3 px-4 text-stone-500">Tablets</td>
-            </tr>
-            <tr class="border-b border-border">
-              <td class="py-3 px-4"><code class="bg-secondary px-2 py-1 rounded">lg:</code></td>
-              <td class="py-3 px-4">1024px</td>
-              <td class="py-3 px-4 text-stone-500">Laptops</td>
-            </tr>
-            <tr class="border-b border-border">
-              <td class="py-3 px-4"><code class="bg-secondary px-2 py-1 rounded">xl:</code></td>
-              <td class="py-3 px-4">1280px</td>
-              <td class="py-3 px-4 text-stone-500">Desktops</td>
-            </tr>
-            <tr>
-              <td class="py-3 px-4"><code class="bg-secondary px-2 py-1 rounded">2xl:</code></td>
-              <td class="py-3 px-4">1536px</td>
-              <td class="py-3 px-4 text-stone-500">Large screens</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Current Breakpoint Indicator -->
-      <div class="mt-8 p-6 border border-border rounded-lg bg-orange-50 dark:bg-orange-950/20">
-        <h3 class="display-h6 mb-2">Current Breakpoint</h3>
-        <p class="body-big text-orange-600">
-          <span class="sm:hidden">Mobile (< 640px)</span>
-          <span class="hidden sm:inline md:hidden">SM (>= 640px)</span>
-          <span class="hidden md:inline lg:hidden">MD (>= 768px)</span>
-          <span class="hidden lg:inline xl:hidden">LG (>= 1024px)</span>
-          <span class="hidden xl:inline 2xl:hidden">XL (>= 1280px)</span>
-          <span class="hidden 2xl:inline">2XL (>= 1536px)</span>
-        </p>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="pt-8 border-t border-border">
-      <p class="body-small text-center">
-        <a href="/" class="text-orange-600 hover:underline">Back to Home</a>
-      </p>
-    </footer>
-  </div>
+      </div><!-- /main content -->
+    </div><!-- /grid -->
+  </div><!-- /container-page -->
 </Layout>

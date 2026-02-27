@@ -41,7 +41,7 @@
     --color-bg:             #ffffff;
     --color-bg-subtle:      var(--stone-100);
     --color-bg-raised:      #ffffff;
-    --color-border:         var(--stone-300);
+    --color-border:         var(--stone-400);
     --color-border-focus:   var(--orange-600);
     --color-text:           var(--stone-950);
     --color-text-secondary: var(--stone-700);
@@ -82,7 +82,7 @@
     --color-bg:             var(--stone-950);
     --color-bg-subtle:      var(--stone-900);
     --color-bg-raised:      var(--stone-900);
-    --color-border:         var(--stone-700);
+    --color-border:         var(--stone-600);
     --color-border-focus:   var(--orange-500);
     --color-text:           #f5f5f4;
     --color-text-secondary: var(--stone-300);

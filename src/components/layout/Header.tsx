@@ -83,7 +83,7 @@ export function Header() {
   const handleNavClick = () => setIsMenuOpen(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-[#FEEDE8] dark:bg-stone-900 border-b border-[#e7e5e4] dark:border-stone-800">
+    <header className="sticky top-0 z-50 bg-[#FEEDE8] dark:bg-stone-900 border-b border-stone-400 dark:border-stone-700">
       <div className="container-page">
         <nav className="flex items-center justify-between h-16 lg:h-[72px]" aria-label="Main">
 
@@ -127,7 +127,7 @@ export function Header() {
             </a>
 
             {/* Divider */}
-            <div className="w-px h-6 bg-[#e7e5e4] dark:bg-stone-700 mx-3" aria-hidden="true" />
+            <div className="w-px h-6 bg-stone-400 dark:bg-stone-600 mx-3" aria-hidden="true" />
 
             {/* Theme Toggle */}
             <ThemeToggle />
@@ -165,7 +165,7 @@ export function Header() {
       <div
         id="mobile-menu"
         ref={menuRef}
-        className={`lg:hidden fixed inset-x-0 top-16 bottom-0 bg-[#FEEDE8] dark:bg-stone-900 border-t border-[#e7e5e4] dark:border-stone-800 transition-all duration-300 ${
+        className={`lg:hidden fixed inset-x-0 top-16 bottom-0 bg-[#FEEDE8] dark:bg-stone-900 border-t border-stone-400 dark:border-stone-700 transition-all duration-300 ${
           isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
         }`}
         aria-hidden={!isMenuOpen}
@@ -188,7 +188,7 @@ export function Header() {
           </ul>
 
           {/* Mobile Footer */}
-          <div className="mt-auto pt-6 border-t border-[#e7e5e4] dark:border-stone-800">
+          <div className="mt-auto pt-6 border-t border-stone-400 dark:border-stone-700">
             {/* Theme + Social Links */}
             <div className="flex items-center gap-2 mb-4">
               <ThemeToggle />
@@ -198,7 +198,7 @@ export function Header() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 text-[#1C1917] dark:text-stone-200 hover:text-orange-600 dark:hover:text-orange-500 border border-[#e7e5e4] dark:border-stone-700 rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-600"
+                  className="p-3 text-[#1C1917] dark:text-stone-200 hover:text-orange-600 dark:hover:text-orange-500 border border-stone-400 dark:border-stone-600 rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-600"
                   aria-label={link.label}
                 >
                   <SocialIcon name={link.icon} className="w-5 h-5" />

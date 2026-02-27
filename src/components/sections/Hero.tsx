@@ -62,12 +62,12 @@ export function Hero() {
           <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
             <div className="relative">
               {/* Orange accent shape */}
-              <div className="absolute -top-4 -right-4 w-full h-full bg-orange-600 rounded-2xl" />
+              <div className="absolute -top-4 right-0 lg:-right-4 w-full h-full bg-orange-600 rounded-2xl" />
 
               {/* Profile card */}
-              <div className="relative bg-background border border-border rounded-2xl p-6 shadow-lg">
+              <div className="relative bg-background border border-border rounded-2xl p-4 lg:p-6 shadow-lg">
                 {/* Profile image placeholder */}
-                <div className="w-64 h-72 lg:w-80 lg:h-96 bg-stone-200 dark:bg-stone-800 rounded-xl mb-4 flex items-center justify-center overflow-hidden">
+                <div className="w-60 h-72 lg:w-80 lg:h-96 bg-stone-200 dark:bg-stone-800 rounded-xl mb-4 flex items-center justify-center overflow-hidden">
                   {/* Replace with actual image */}
                   <Icon name="person" size="xl" className="text-stone-400" />
                 </div>
