@@ -12,7 +12,8 @@
       "mcp__playwright__get-screenshot",
       "mcp__playwright__execute-code",
       "WebFetch(domain:github.com)",
-      "WebFetch(domain:marella.github.io)"
+      "WebFetch(domain:marella.github.io)",
+      "Skill(user-experience)"
     ],
     "deny": []
   }
