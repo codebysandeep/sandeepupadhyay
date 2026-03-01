@@ -6,97 +6,117 @@ interface Stat {
 }
 
 const stats: Stat[] = [
-  { value: '20+', label: 'Years' },
-  { value: '100k+', label: 'Modules' },
-  { value: '25+', label: 'Projects' },
-  { value: '12+', label: 'Deals' },
+  { value: '20+', label: 'Years Experience' },
+  { value: '12+', label: 'Team Led' },
+  { value: '$15M+', label: 'Revenue Earned' },
 ];
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden py-12 lg:py-20 bg-gradient-to-b from-[#FEEDE8] to-white dark:from-stone-900 dark:to-stone-950">
+    <section className="relative bg-white dark:bg-stone-950 overflow-hidden">
+      <div className="container-page py-14 lg:py-20">
 
-      <div className="container-page">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+        {/* Trust signal */}
+        {/* <div className="flex items-center gap-2 mb-8 lg:mb-10">
+          <Icon name="verified" size="sm" className="text-orange-600" />
+          <span className="body-small font-medium text-foreground">
+            Trusted by Fortune 500 financial, insurance &amp; technology organizations
+          </span>
+        </div> */}
+
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-10 xl:gap-16 items-start">
+
           {/* Left Content */}
           <div className="order-2 lg:order-1">
+
             {/* Headline */}
             <h1 className="title mb-6">
-              Rive Profit.
+              Drive Profit.
               <br />
-              Mitigate Risk.
+              Mitigate{' '}
+              <span className="italic text-orange-600 dark:text-orange-500">Risk.</span>
             </h1>
 
             {/* Description */}
-            <p className="body-p max-w-xl mb-8">
+            <p className="body-p text-muted-foreground max-w-md mb-8">
               I architect accessibility-first enterprise design systems adopted by Fortune 500
-              financial, insurance, and technology organizations,{' '}
-              <span className="text-foreground font-medium">
-                reducing regulatory risk and long-term development cost at scale.
-              </span>
+              financial, insurance, and technology organizations, reducing regulatory risk and
+              long-term development cost at scale.
             </p>
 
-            {/* CTA Button */}
-            <div className="flex flex-wrap items-center gap-4 mb-10">
+            {/* CTA */}
+            <div className="mb-10 lg:mb-14">
               <a
                 href="#contribution"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-orange-900 text-white font-medium rounded-lg hover:bg-orange-950 transition-colors"
+                className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-stone-950 dark:bg-white text-white dark:text-stone-900 font-semibold rounded-full hover:bg-stone-700 dark:hover:bg-stone-100 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-600 focus-visible:ring-offset-2"
               >
-                View Contribution
+                View Contributions
                 <Icon name="arrow_forward" size="sm" />
               </a>
             </div>
 
             {/* Stats */}
-            <div className="flex flex-wrap gap-6 lg:gap-10">
+            <div className="flex items-start gap-8 lg:gap-12 pt-8 border-t border-border">
               {stats.map((stat) => (
-                <div key={stat.label} className="text-center">
-                  <div className="text-2xl lg:text-3xl font-bold text-foreground">{stat.value}</div>
-                  <div className="body-small text-stone-700">{stat.label}</div>
+                <div key={stat.label}>
+                  <div className="text-2xl lg:text-3xl font-bold text-foreground leading-none mb-1">
+                    {stat.value}
+                  </div>
+                  <div className="body-small text-muted-foreground">{stat.label}</div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Right Content - Profile */}
-          <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
-            <div className="relative self-start">
+          {/* Right Content — editorial photo with floating badges */}
+          <div className="order-1 lg:order-2">
+            {/* Positioning context — no overflow-hidden so badges can bleed */}
+            <div className="relative mx-auto max-w-sm lg:max-w-none">
 
-              {/* Orange offset frame — sits behind the card, creates depth */}
-              <div
-                className="absolute inset-0 translate-x-3 translate-y-3 lg:translate-x-4 lg:translate-y-4 rounded-2xl bg-orange-600"
-                aria-hidden="true"
-              />
+              {/* Profile photo */}
+              <div className="rounded-2xl overflow-hidden aspect-[3/4] bg-orange-50 dark:bg-stone-800">
+                <img
+                  src="/images/sandeep-profile-bio.png"
+                  alt="Sandeep Upadhyay, Principal Frontend Engineer and Strategic Accessibility Advisor"
+                  className="w-full h-full object-contain object-bottom"
+                  width="480"
+                  height="640"
+                  loading="eager"
+                  decoding="async"
+                />
+              </div>
 
-              {/* Profile card — image flush to edges, no top padding */}
-              <div className="relative w-64 sm:w-72 lg:w-80 rounded-2xl overflow-hidden border border-border shadow-xl bg-white dark:bg-stone-900">
-
-                {/* Image — aspect-[3/4] scales proportionally on every screen size */}
-                <div className="w-full aspect-[3/4] bg-stone-50 dark:bg-stone-800 overflow-hidden">
-                  <img
-                    src="/images/sandeep-profile-bio.png"
-                    alt="Sandeep Upadhyay, Principal Frontend Engineer and Strategic Accessibility Advisor"
-                    className="w-full h-full object-contain object-bottom"
-                    width="480"
-                    height="640"
-                    loading="eager"
-                    decoding="async"
-                  />
+              {/* Floating pill badges — top right */}
+              <div className="absolute top-5 -right-2 lg:-right-4 xl:-right-6 flex flex-col gap-2">
+                <div className="flex items-center gap-2 bg-white dark:bg-stone-800 border border-border rounded-full px-3 py-1.5 shadow-md">
+                  <Icon name="verified" size="sm" className="text-orange-600" />
+                  <span className="text-sm font-medium text-foreground whitespace-nowrap">Principal Architect</span>
                 </div>
-
-                {/* Info strip */}
-                <div className="px-5 py-4 border-t border-border">
-                  <h2 className="display-5 mb-1">Sandeep Upadhyay</h2>
-                  <p className="body-small text-muted-foreground">
-                    Principal Frontend Engineer
-                    <span className="mx-1.5 opacity-40">·</span>
-                    Strategic Accessibility Advisor
-                  </p>
+                <div className="flex items-center gap-2 bg-white dark:bg-stone-800 border border-border rounded-full px-3 py-1.5 shadow-md">
+                  <Icon name="business_center" size="sm" className="text-orange-600" />
+                  <span className="text-sm font-medium text-foreground whitespace-nowrap">Enterprise Design System Architect</span>
                 </div>
+                <div className="flex items-center gap-2 bg-white dark:bg-stone-800 border border-border rounded-full px-3 py-1.5 shadow-md">
+                  <Icon name="business_center" size="sm" className="text-orange-600" />
+                  <span className="text-sm font-medium text-foreground whitespace-nowrap">Strategic Accessibility Advisor</span>
+                </div>
+              </div>
+
+              {/* Floating orange stat card — left edge, mid-height */}
+              <div className="absolute top-[30%] -left-4 lg:-left-8 bg-orange-600 text-white rounded-2xl p-4 shadow-xl">
+                <div className="text-3xl font-bold leading-none mb-1">15+</div>
+                <div className="text-sm opacity-90 leading-snug">Original<br />Contributors</div>
+              </div>
+
+              {/* Floating white stat card — bottom right */}
+              <div className="absolute bottom-5 right-4 bg-white dark:bg-stone-900 rounded-2xl px-4 py-3 shadow-xl border border-border">
+                <div className="text-2xl font-bold text-foreground leading-none mb-0.5">Sandeep</div>
+                <div className="text-sm text-muted-foreground">Upadhyay</div>
               </div>
 
             </div>
           </div>
+
         </div>
       </div>
     </section>
