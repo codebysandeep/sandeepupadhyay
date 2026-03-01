@@ -49,10 +49,10 @@ function ThemeToggle({ className }: { className?: string }) {
   return (
     <button
       onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-      className={className ?? 'p-2 text-foreground hover:text-orange-600 dark:hover:text-orange-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-600 focus-visible:ring-offset-2 rounded-md'}
+      className={className ?? 'flex items-center justify-center p-1.5 xl:p-2 text-foreground hover:text-orange-600 dark:hover:text-orange-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-600 focus-visible:ring-offset-2 rounded-md'}
       aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
     >
-      <Icon name={theme === 'light' ? 'dark_mode' : 'light_mode'} size="sm" />
+      <Icon name={theme === 'light' ? 'dark_mode' : 'light_mode'} size="md" />
     </button>
   );
 }
@@ -94,6 +94,17 @@ export function Header() {
     };
   }, []);
 
+  // Auto-close menu when viewport enters desktop breakpoint (≥1024px).
+  // Without this, body.overflow stays 'hidden' if user resizes from mobile with menu open.
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 1024px)');
+    const closeOnDesktop = (e: MediaQueryListEvent) => {
+      if (e.matches) setIsMenuOpen(false);
+    };
+    mq.addEventListener('change', closeOnDesktop);
+    return () => mq.removeEventListener('change', closeOnDesktop);
+  }, []);
+
   // Close menu on Escape key
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -128,14 +139,14 @@ export function Header() {
             <img
               src="/images/sandeep-upadhyay-logo.svg"
               alt="Sandeep Upadhyay"
-              className="h-[1.1rem] w-auto dark:invert"
+              className="h-[1.1rem] lg:h-[0.9rem] xl:h-[1.1rem] w-auto dark:invert"
               width="760"
               height="80"
             />
           </a>
 
           {/* Desktop Navigation */}
-          <ul className="hidden lg:flex items-center gap-0.5 ml-10">
+          <ul className="hidden lg:flex items-center gap-0 ml-6 xl:ml-10">
             {navItems.map((item) => {
               const isActive = activeSection === item.section;
               return (
@@ -143,7 +154,7 @@ export function Header() {
                   <a
                     href={item.href}
                     aria-current={isActive ? 'page' : undefined}
-                    className={`px-3 py-2 rounded-md font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-600 ${
+                    className={`px-2 xl:px-3 py-2 rounded-md font-medium lg:text-base xl:text-[1.125rem] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-600 ${
                       isActive
                         ? 'text-foreground font-bold'
                         : 'text-foreground hover:text-orange-600 dark:hover:text-orange-500'
@@ -157,11 +168,11 @@ export function Header() {
           </ul>
 
           {/* Desktop Right Actions */}
-          <div className="ml-auto hidden lg:flex items-center gap-2">
+          <div className="ml-auto hidden lg:flex items-center gap-1 xl:gap-2">
             {/* Contact Button */}
             <a
               href="#contact"
-              className="px-4 py-1.5 bg-stone-950 dark:bg-white text-white dark:text-stone-900 font-medium rounded-full hover:bg-stone-800 dark:hover:bg-stone-100 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-600 focus-visible:ring-offset-2"
+              className="px-3 xl:px-4 py-1.5 lg:text-base xl:text-[1.125rem] bg-stone-950 dark:bg-white text-white dark:text-stone-900 font-medium rounded-full hover:bg-stone-800 dark:hover:bg-stone-100 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-600 focus-visible:ring-offset-2"
             >
               Contact
             </a>
@@ -179,7 +190,7 @@ export function Header() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 text-foreground hover:text-orange-600 dark:hover:text-orange-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-600 rounded-md"
+                className="p-1.5 xl:p-2 text-foreground hover:text-orange-600 dark:hover:text-orange-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-600 rounded-md"
                 aria-label={link.label}
               >
                 <SocialIcon name={link.icon} className="w-5 h-5" />
@@ -249,7 +260,7 @@ export function Header() {
                   className="p-3 text-foreground hover:text-orange-600 dark:hover:text-orange-500 border border-border rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-600"
                   aria-label={link.label}
                 >
-                  <SocialIcon name={link.icon} className="w-5 h-5" />
+                  <SocialIcon name={link.icon} className="w-6 h-6" />
                 </a>
               ))}
             </div>
