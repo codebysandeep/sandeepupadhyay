@@ -139,7 +139,7 @@ export function Header() {
             <img
               src="/images/sandeep-upadhyay-logo.svg"
               alt="Sandeep Upadhyay"
-              className="h-[1.1rem] lg:h-[0.9rem] xl:h-[1.1rem] w-auto dark:invert"
+              className="h-[1.3rem] lg:h-[1.25rem] xl:h-[1.5rem] w-auto dark:invert"
               width="760"
               height="80"
             />
@@ -168,7 +168,7 @@ export function Header() {
           </ul>
 
           {/* Desktop Right Actions */}
-          <div className="ml-auto hidden lg:flex items-center gap-1 xl:gap-2">
+          <div className="ml-auto hidden lg:flex items-center gap-1">
             {/* Contact Button */}
             <a
               href="#contact"
@@ -178,7 +178,7 @@ export function Header() {
             </a>
 
             {/* Divider */}
-            <div className="w-px h-6 bg-border mx-1" aria-hidden="true" />
+            <div className="w-px h-6 bg-border mx-3" aria-hidden="true" />
 
             {/* Theme Toggle */}
             <ThemeToggle />
