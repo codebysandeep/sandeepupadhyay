@@ -60,35 +60,41 @@ export function Hero() {
 
           {/* Right Content - Profile */}
           <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
-            <div className="relative">
-              {/* Orange accent shape */}
-              <div className="absolute -top-4 right-0 lg:-right-4 w-full h-full bg-orange-600 rounded-2xl" />
+            <div className="relative self-start">
 
-              {/* Profile card */}
-              <div className="relative bg-background border border-border rounded-2xl p-4 lg:p-6 shadow-lg">
-                {/* Profile image */}
-                <div className="w-60 h-72 lg:w-80 lg:h-96 rounded-xl mb-4 overflow-hidden">
+              {/* Orange offset frame — sits behind the card, creates depth */}
+              <div
+                className="absolute inset-0 translate-x-3 translate-y-3 lg:translate-x-4 lg:translate-y-4 rounded-2xl bg-orange-600"
+                aria-hidden="true"
+              />
+
+              {/* Profile card — image flush to edges, no top padding */}
+              <div className="relative w-64 sm:w-72 lg:w-80 rounded-2xl overflow-hidden border border-border shadow-xl bg-white dark:bg-stone-900">
+
+                {/* Image — aspect-[3/4] scales proportionally on every screen size */}
+                <div className="w-full aspect-[3/4] bg-stone-50 dark:bg-stone-800 overflow-hidden">
                   <img
                     src="/images/sandeep-profile-bio.png"
                     alt="Sandeep Upadhyay, Principal Frontend Engineer and Strategic Accessibility Advisor"
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-contain object-bottom"
                     width="480"
-                    height="560"
+                    height="640"
                     loading="eager"
                     decoding="async"
                   />
                 </div>
 
-                {/* Profile info */}
-                <div className="text-center">
-                  <h2 className="display-4 mb-1">Sandeep Upadhyay</h2>
-                  <p className="body-medium text-stone-700">
+                {/* Info strip */}
+                <div className="px-5 py-4 border-t border-border">
+                  <h2 className="display-5 mb-1">Sandeep Upadhyay</h2>
+                  <p className="body-small text-muted-foreground">
                     Principal Frontend Engineer
-                    <br />
+                    <span className="mx-1.5 opacity-40">·</span>
                     Strategic Accessibility Advisor
                   </p>
                 </div>
               </div>
+
             </div>
           </div>
         </div>

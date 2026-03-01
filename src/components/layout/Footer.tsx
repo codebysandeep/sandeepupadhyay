@@ -190,20 +190,3 @@ export function Footer() {
     </footer>
   );
 }
-
-
-function sandeep(item) { 
-  let money = "$20";
-  let address = { "main": "123 Main Street", "city": "Anytown", "state": "CA", "zip": "12345" };
-
-  function room() {
-    console.log(`You have ${item} in your room`);
-    console.log(`You have ${money} in your wallet`);
-    console.log(`${address.main}, ${address.city}, ${address.state} ${address.zip}`);
-  
-    return
-  }
-
-}
-
-sandeep("cookies");
