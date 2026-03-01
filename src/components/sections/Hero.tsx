@@ -14,7 +14,7 @@ const stats: Stat[] = [
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden py-12 lg:py-20">
+    <section className="relative overflow-hidden py-12 lg:py-20 bg-gradient-to-b from-[#FEEDE8] to-white dark:from-stone-900 dark:to-stone-950">
 
       <div className="container-page">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
@@ -66,10 +66,17 @@ export function Hero() {
 
               {/* Profile card */}
               <div className="relative bg-background border border-border rounded-2xl p-4 lg:p-6 shadow-lg">
-                {/* Profile image placeholder */}
-                <div className="w-60 h-72 lg:w-80 lg:h-96 bg-stone-200 dark:bg-stone-800 rounded-xl mb-4 flex items-center justify-center overflow-hidden">
-                  {/* Replace with actual image */}
-                  <Icon name="person" size="xl" className="text-stone-400" />
+                {/* Profile image */}
+                <div className="w-60 h-72 lg:w-80 lg:h-96 rounded-xl mb-4 overflow-hidden">
+                  <img
+                    src="/images/sandeep-profile-bio.png"
+                    alt="Sandeep Upadhyay, Principal Frontend Engineer and Strategic Accessibility Advisor"
+                    className="w-full h-full object-cover object-top"
+                    width="480"
+                    height="560"
+                    loading="eager"
+                    decoding="async"
+                  />
                 </div>
 
                 {/* Profile info */}
